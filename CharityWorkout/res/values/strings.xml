@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" >Charity Workout
+    </string>
+    <string name="action_settings" >Settings
+    </string>
+    <string name="hello_world" >Hello world!
+    </string>
+    <string name="homeText">Please select your workout
+    </string>
+    <string name="amountText">Please set your amount of donation per kilometer
+    </string>
+    <string name="image">image</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="setAmount">Set your own amount</string>
+    <string name="submit">Submit</string>
+
+</resources>
