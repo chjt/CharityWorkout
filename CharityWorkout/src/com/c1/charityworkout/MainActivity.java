@@ -11,7 +11,7 @@ public class MainActivity extends Activity {
 
     ImageButton running, cycling, skateboard;
     static int x;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
