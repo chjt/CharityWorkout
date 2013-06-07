@@ -16,5 +16,6 @@
     <string name="stop">Stop</string>
     <string name="setAmount">Set your own amount</string>
     <string name="submit">Submit</string>
+    <string name="workout_data">Workout Data</string>
 
 </resources>
