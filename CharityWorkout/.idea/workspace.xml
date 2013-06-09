@@ -16,7 +16,7 @@
     </list>
     <ignored path="CharityWorkout.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5d780516-e692-40d5-a711-f0d928702f44" time="1370521874701" ignored="false" />
+    <file path="/Dummy.txt" changelist="5d780516-e692-40d5-a711-f0d928702f44" time="1370521887779" ignored="false" />
     <file path="/Screen3.java" changelist="5d780516-e692-40d5-a711-f0d928702f44" time="1370520329868" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,7 @@
       <file leaf-file-name="Screen3.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="27" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.26984128">
+            <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.35978836">
               <folding />
             </state>
           </provider>
@@ -98,6 +98,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitLogSettings">
+    <option name="mySelectedBranch" value="refs/remotes/origin/master" />
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -396,7 +398,7 @@
       <updated>1370520003297</updated>
       <workItem from="1370520006222" duration="999000" />
       <workItem from="1370521141801" duration="186000" />
-      <workItem from="1370521529796" duration="350000" />
+      <workItem from="1370521529796" duration="822000" />
     </task>
     <task id="LOCAL-00001" summary="Timer voor workout pages">
       <created>1370520719323</created>
@@ -406,11 +408,15 @@
       <created>1370521878001</created>
       <updated>1370521878001</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Timer voor workout pages">
+      <created>1370521882765</created>
+      <updated>1370521882765</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1535000" />
+    <option name="totallyTimeSpent" value="2007000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -434,7 +440,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -443,7 +449,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280543" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -502,7 +508,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Timer voor workout pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -566,7 +572,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="27" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.26984128">
+        <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.35978836">
           <folding />
         </state>
       </provider>
