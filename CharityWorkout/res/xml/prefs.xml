@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <ListPreference android:title="Currency"
+        android:summary="What currency to display for donations"
+        android:entries="@array/currencyEntries"
+        android:entryValues="@array/currencyValues" />
+    
+</PreferenceScreen>
