@@ -15,11 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d780516-e692-40d5-a711-f0d928702f44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/Manifest.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/Manifest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/R.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java" afterPath="$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/screen_3.xml" afterPath="$PROJECT_DIR$/res/layout/screen_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CharityWorkout.iws" />
@@ -87,9 +82,10 @@
       <file leaf-file-name="Screen3.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.37742504" vertical-offset="619" max-vertical-offset="1496">
+            <state line="63" column="8" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.79717815" vertical-offset="619" max-vertical-offset="1496">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1439#1720#0" expanded="true" />
                 <element signature="e#1705#1706#0" expanded="true" />
               </folding>
             </state>
@@ -450,7 +446,11 @@
       <created>1370521882765</created>
       <updated>1370521882765</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Timer voor workout pages">
+      <created>1370875531852</created>
+      <updated>1370875531852</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -573,6 +573,7 @@
         <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1887">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1439#1720#0" expanded="true" />
             <element signature="e#1705#1706#0" expanded="true" />
           </folding>
         </state>
@@ -583,6 +584,7 @@
         <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1439#1720#0" expanded="true" />
             <element signature="e#1705#1706#0" expanded="true" />
           </folding>
         </state>
@@ -593,6 +595,7 @@
         <state line="31" column="17" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1439#1720#0" expanded="true" />
             <element signature="e#1705#1706#0" expanded="true" />
           </folding>
         </state>
@@ -603,6 +606,7 @@
         <state line="27" column="58" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1439#1720#0" expanded="true" />
             <element signature="e#1705#1706#0" expanded="true" />
           </folding>
         </state>
@@ -644,9 +648,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.37742504" vertical-offset="619" max-vertical-offset="1496">
+        <state line="63" column="8" selection-start="1978" selection-end="1978" vertical-scroll-proportion="0.79717815" vertical-offset="619" max-vertical-offset="1496">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1439#1720#0" expanded="true" />
             <element signature="e#1705#1706#0" expanded="true" />
           </folding>
         </state>
