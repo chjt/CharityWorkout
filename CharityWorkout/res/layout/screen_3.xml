@@ -45,12 +45,9 @@
             android:layout_height="fill_parent"
             android:text="@string/stop"
             android:id="@+id/thankyou" android:background="#ff252d" android:textColor="#ffffff"
-<<<<<<< HEAD
-            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
-=======
             android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
             android:onClick="timerstop"/>
->>>>>>> origin/Jeroen
+
      </LinearLayout>
     <TextView
             android:layout_width="fill_parent"
