@@ -18,9 +18,9 @@ public class Screen3 extends Activity {
     Button thankyou, startbutton;
     ImageView imgView;
     private int y;
-    private long tijd1;
-    private long tijdpauze;
+    private long tijd1, tijdpauze;
     public static long tijd;
+    TextView WorkoutText;
     // private static final String DEBUG_TAG = "Gestures";
 
     @Override
@@ -45,7 +45,6 @@ public class Screen3 extends Activity {
 
                @Override
                public void run() {
-                   TextView WorkoutText = (TextView) findViewById(R.id.textView);
                    WorkoutText.setText(String.valueOf(System.currentTimeMillis()-tijd1));
                }
 
@@ -70,8 +69,8 @@ public class Screen3 extends Activity {
 
     public void timerstop(View view)
     {   thankyou = (Button) view;
-        tijd = System.currentTimeMillis()-tijd1;
-        thankyou.setText(String.valueOf(tijd));
+    	tijd = System.currentTimeMillis()-tijd1;
+        WorkoutText.setText(String.valueOf(tijd));
 
     }
 
@@ -94,6 +93,7 @@ public class Screen3 extends Activity {
 		// TODO Auto-generated method stub
 		thankyou = (Button) findViewById(R.id.thankyou);
         // history = (Button) findViewById(R.id.history);
+		WorkoutText = (TextView) findViewById(R.id.textView);
 		y = com.c1.charityworkout.MainActivity.x;
         imgView =(ImageView) findViewById(R.id.imageView2);
         Drawable image2 = getResources().getDrawable(y);
