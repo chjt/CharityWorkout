@@ -35,10 +35,11 @@ public final class R {
     }
     public static final class id {
         public static final int AmountSet=0x7f0a0004;
-        public static final int Done=0x7f0a000f;
+        public static final int Done=0x7f0a0010;
         public static final int SetAmount=0x7f0a0008;
+        public static final int StartButton=0x7f0a000d;
         public static final int Submit=0x7f0a000a;
-        public static final int action_settings=0x7f0a0010;
+        public static final int action_settings=0x7f0a0011;
         public static final int editText=0x7f0a0009;
         public static final int fiftyCent=0x7f0a0007;
         public static final int homeView=0x7f0a0000;
@@ -48,8 +49,8 @@ public final class R {
         public static final int imageView2=0x7f0a000b;
         public static final int tenCent=0x7f0a0005;
         public static final int textView=0x7f0a000c;
-        public static final int textView2=0x7f0a000e;
-        public static final int thankyou=0x7f0a000d;
+        public static final int textView2=0x7f0a000f;
+        public static final int thankyou=0x7f0a000e;
         public static final int twentyCent=0x7f0a0006;
     }
     public static final class layout {
