@@ -10,14 +10,20 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5d780516-e692-40d5-a711-f0d928702f44" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/Manifest.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/Manifest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/c1/charityworkout/R.java" afterPath="$PROJECT_DIR$/gen/com/c1/charityworkout/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java" afterPath="$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/screen_3.xml" afterPath="$PROJECT_DIR$/res/layout/screen_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CharityWorkout.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5d780516-e692-40d5-a711-f0d928702f44" time="1370521887779" ignored="false" />
-    <file path="/Screen3.java" changelist="5d780516-e692-40d5-a711-f0d928702f44" time="1370520329868" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +38,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -69,6 +74,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -81,7 +87,38 @@
       <file leaf-file-name="Screen3.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.35978836">
+            <state line="49" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.37742504" vertical-offset="619" max-vertical-offset="1496">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1705#1706#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen_3.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/screen_3.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state line="13" column="4" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+              <folding>
+                <element signature="e#454#469#0" expanded="true" />
+                <element signature="e#1500#1515#0" expanded="true" />
+                <element signature="e#1723#1737#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thankyou.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/thankyou.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -144,8 +181,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -399,6 +436,7 @@
       <workItem from="1370520006222" duration="999000" />
       <workItem from="1370521141801" duration="186000" />
       <workItem from="1370521529796" duration="822000" />
+      <workItem from="1370864311776" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="Timer voor workout pages">
       <created>1370520719323</created>
@@ -416,7 +454,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2007000" />
+    <option name="totallyTimeSpent" value="2028000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -440,28 +478,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.9061086" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280543" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.67081445" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30316743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -508,7 +548,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="Timer voor workout pages" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -530,50 +570,85 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1887">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="58" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="58" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="11" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+        <state line="15" column="11" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="11" selection-start="460" selection-end="460" vertical-scroll-proportion="0.19767442" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/thankyou.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/screen_3.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="8" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.37317073">
-          <folding>
-            <element signature="e#454#469#0" expanded="true" />
-            <element signature="e#1462#1477#0" expanded="true" />
-            <element signature="e#1654#1668#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="11" selection-start="460" selection-end="460" vertical-scroll-proportion="0.19767442">
-          <folding />
+      <provider editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+          <folding>
+            <element signature="e#454#469#0" expanded="true" />
+            <element signature="e#1500#1515#0" expanded="true" />
+            <element signature="e#1723#1737#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/c1/charityworkout/Screen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="17" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.35978836">
-          <folding />
+        <state line="49" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.37742504" vertical-offset="619" max-vertical-offset="1496">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

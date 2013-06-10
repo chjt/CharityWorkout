@@ -34,8 +34,10 @@
         android:layout_weight="50"
         android:background="#7bff71"
         android:enabled="true"
+        android:id="@+id/StartButton"
         android:focusableInTouchMode="true"
-        android:text="@string/start" />
+        android:text="@string/start"
+        android:onClick="timer"/>
 
     <Button
             android:layout_weight="50"
@@ -43,7 +45,8 @@
             android:layout_height="fill_parent"
             android:text="@string/stop"
             android:id="@+id/thankyou" android:background="#ff252d" android:textColor="#ffffff"
-            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+            android:onClick="timerstop"/>
      </LinearLayout>
     <TextView
             android:layout_width="fill_parent"
