@@ -17,11 +17,16 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        running = (ImageButton) findViewById(R.id.imageButton);
+        initialize();
+
+    }
+
+	private void initialize() {
+		// TODO Auto-generated method stub
+		running = (ImageButton) findViewById(R.id.imageButton);
         cycling = (ImageButton) findViewById(R.id.imageButton2);
         skateboard = (ImageButton) findViewById(R.id.imageButton3);
-
-
+        
         running.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -49,9 +54,7 @@ public class MainActivity extends Activity {
             }
         }
         );
-
-
-    }
+	}
 
 
 	@Override
