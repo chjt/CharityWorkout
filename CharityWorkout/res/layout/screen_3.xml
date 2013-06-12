@@ -12,16 +12,12 @@
         android:contentDescription="@string/image" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_weight="1.34"
-        android:height="25dp"
-        android:text="Workout Data"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Workout Data"
+            android:id="@+id/textView" android:layout_gravity="center" android:height="100dp"
+            android:layout_marginTop="30dp"/>
     <LinearLayout
             android:weightSum="100"
             android:layout_width="fill_parent"
@@ -29,7 +25,7 @@
             android:orientation="horizontal" android:gravity="center_horizontal">
 
     <Button
-        android:id="@+id/thankyou"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,25 +34,26 @@
         android:layout_weight="50"
         android:background="#7bff71"
         android:enabled="true"
+        android:id="@+id/StartButton"
         android:focusableInTouchMode="true"
-        android:minHeight="48dp"
-        android:minWidth="64dp"
-        android:text="@string/start" />
+        android:text="@string/start"
+        android:onClick="timer"/>
 
     <Button
             android:layout_weight="50"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="@string/stop"
-            android:id="@+id/history" android:background="#ff252d" android:textColor="#ffffff"
-            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
-     </LinearLayout>
-    <fragment
-        android:id="@+id/the_map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="140"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+            android:id="@+id/thankyou" android:background="#ff252d" android:textColor="#ffffff"
+            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+            android:onClick="timerstop"/>
 
+     </LinearLayout>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="GOOGLE MAPS"
+            android:id="@+id/textView2" android:gravity="center_horizontal" android:layout_marginTop="30dp"
+            android:height="200dp"/>
 </LinearLayout>

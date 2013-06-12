@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -16,11 +17,16 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        running = (ImageButton) findViewById(R.id.imageButton);
+        initialize();
+
+    }
+
+	private void initialize() {
+		// TODO Auto-generated method stub
+		running = (ImageButton) findViewById(R.id.imageButton);
         cycling = (ImageButton) findViewById(R.id.imageButton2);
         skateboard = (ImageButton) findViewById(R.id.imageButton3);
-
-
+        
         running.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -48,9 +54,7 @@ public class MainActivity extends Activity {
             }
         }
         );
-
-
-    }
+	}
 
 
 	@Override
@@ -59,5 +63,22 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch(item.getItemId()) {
+		case R.id.action_settings:
+			Intent p = new Intent("android.c1.charityworkout.PREFS");
+			startActivity(p);
+			break;
+		
+		}
+		
+		return false;
+	}
+	
+	
 
 }
