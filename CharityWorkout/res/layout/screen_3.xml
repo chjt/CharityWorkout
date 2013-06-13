@@ -66,14 +66,6 @@
                     android:text="@string/stop"
                     android:textColor="#ffffff" />
             </LinearLayout>
-
-            <fragment
-                android:id="@+id/the_map"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="140"
-                class="com.google.android.gms.maps.SupportMapFragment" />
         </LinearLayout>
     </android.gesture.GestureOverlayView>
 

@@ -1,4 +1,4 @@
-package com.c1.charityworkout;
+/*package com.c1.charityworkout;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -76,4 +76,4 @@ public class GoogleMaps extends FragmentActivity implements LocationListener{
 		
 	}
 
-}
+}*/
