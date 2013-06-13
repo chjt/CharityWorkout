@@ -33,7 +33,6 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		setLocale();
 	}
 
 	private void setLocale() {
@@ -42,7 +41,7 @@ public class MainActivity extends Activity {
 		Configuration config = getBaseContext().getResources()
 				.getConfiguration();
 		prefLocale = getLocale.getString("prefLang", "en");
-		locale = new Locale("nl");
+		locale = new Locale(prefLocale);
 		Locale.setDefault(locale);
 		config.locale = locale;
 		getBaseContext().getResources().updateConfiguration(config,
@@ -96,6 +95,9 @@ public class MainActivity extends Activity {
 		case R.id.action_settings:
 			Intent p = new Intent("android.c1.charityworkout.PREFS");
 			startActivity(p);
+			break;
+		case R.id.exit_app:
+			finish();
 			break;
 
 		}
