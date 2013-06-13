@@ -20,7 +20,7 @@ public class Screen2 extends Activity {
        donate.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent submit = new Intent("android.c1.CharityWorkout.SCREEN3");
+               Intent submit = new Intent(Screen2.this, Screen3.class);
                startActivity(submit);
            }
        });

@@ -1,62 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <android.gesture.GestureOverlayView
+        android:id="@+id/gestureOverlayView1"
         android:layout_width="fill_parent"
-        android:layout_height="82dp"
-        android:layout_gravity="left|center_horizontal"
-        android:contentDescription="@string/image" />
+        android:layout_height="fill_parent"
+        android:gestureColor="@android:color/transparent"
+        android:uncertainGestureColor="@android:color/transparent" >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_weight="1.34"
-        android:height="25dp"
-        android:text="Workout Data"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <LinearLayout
-            android:weightSum="100"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_horizontal">
-
-    <Button
-        android:id="@+id/thankyou"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_weight="50"
-        android:background="#7bff71"
-        android:enabled="true"
-        android:focusableInTouchMode="true"
-        android:minHeight="48dp"
-        android:minWidth="64dp"
-        android:text="@string/start" />
-
-    <Button
-            android:layout_weight="50"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:text="@string/stop"
-            android:id="@+id/history" android:background="#ff252d" android:textColor="#ffffff"
-            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
-     </LinearLayout>
-    <fragment
-        android:id="@+id/the_map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="140"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="fill_parent"
+                android:layout_height="82dp"
+                android:contentDescription="@string/image" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="30dp"
+                android:height="25dp"
+                android:gravity="center"
+                android:text="Workout Data"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="100" >
+
+                <Button
+                    android:id="@+id/thankyou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="50"
+                    android:background="#7bff71"
+                    android:enabled="true"
+                    android:focusableInTouchMode="true"
+                    android:minHeight="48dp"
+                    android:minWidth="64dp"
+                    android:text="@string/start" />
+
+                <Button
+                    android:id="@+id/history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="50"
+                    android:background="#ff252d"
+                    android:text="@string/stop"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <fragment
+                android:id="@+id/the_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="140"
+                class="com.google.android.gms.maps.SupportMapFragment" />
+        </LinearLayout>
+    </android.gesture.GestureOverlayView>
 
 </LinearLayout>
