@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Global Application Strings -->
+    <string name="app_name">Charity Workout</string>
+
+    <!-- Menu Item Strings -->
+    <string name="action_settings">Instellingen</string>
+    <string name="exit_app">Afsluiten</string>
+
+    <!-- Mainmenu Strings -->
+    <string name="homeText">Selecteer je activiteit</string>
+
+    <!-- Unsorted Strings (sort asap) -->
+    <string name="hello_world">Hallo wereld!</string>
+    <string name="amountText">Stel uw gewenste bedrag per kilometer in</string>
+    <string name="image">afbeelding</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="setAmount">Eigen hoeveelheid:</string>
+    <string name="submit">Verzenden</string>
+
+</resources>

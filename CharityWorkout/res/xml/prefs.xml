@@ -3,7 +3,14 @@
     
     <ListPreference android:title="Currency"
         android:summary="What currency to display for donations"
+        android:key="prefCurr"
         android:entries="@array/currencyEntries"
         android:entryValues="@array/currencyValues" />
+    
+    <ListPreference android:title="Language"
+        android:summary="What language do you prefer"
+        android:key="prefLang"
+        android:entries="@array/langEntries"
+        android:entryValues="@array/langValues" />
     
 </PreferenceScreen>

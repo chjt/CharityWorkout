@@ -8,22 +8,21 @@ import android.widget.Button;
 
 public class Screen2 extends Activity {
 
-    Button donate;
-    
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.screen_2);
+	Button donate;
 
-       donate = (Button) findViewById(R.id.Submit);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.screen_2);
 
-       donate.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent submit = new Intent(Screen2.this, Screen3.class);
-               startActivity(submit);
-           }
-       });
-    }
+		donate = (Button) findViewById(R.id.Submit);
+
+		donate.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent submit = new Intent(Screen2.this, Screen3.class);
+				startActivity(submit);
+			}
+		});
+	}
 }
-

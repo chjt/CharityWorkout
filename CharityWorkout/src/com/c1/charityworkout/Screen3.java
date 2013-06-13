@@ -37,37 +37,31 @@ public class Screen3 extends Activity implements OnTouchListener {
 		rendering();
 	}
 
-	/*public void timer(View view) { startbutton = (Button) view; if
-	  (startbutton.getText().equals("Start")) { tijd1 =
-	  System.currentTimeMillis(); startbutton.setText("Pauze"); 
-	  //Declare the timer 
-	  Timer t = new Timer(); 
-	  //Set the schedule function and rate
-	  t.scheduleAtFixedRate(new TimerTask()) {
-	  
-	  public void run() {
-	  workoutText.setText(String.valueOf(System.currentTimeMillis()-tijd1)); }
-	  
-	  }, 
-	  //Set how long before to start calling the TimerTask (in milliseconds)
-	  0, 
-	  //Set the amount of time between each execution (in milliseconds)
-	  1000); } 
-	  else if(startbutton.getText().equals("Pauze")) 
-	  { tijdpauze =
-	  System.currentTimeMillis(); startbutton.setText("Doorgaan"); }
-	  else if(startbutton.getText().equals("Doorgaan")) 
-	  { tijd1 +=
-	  (System.currentTimeMillis()-tijdpauze); startbutton.setText("Pauze"); }
-	  
-	  }
-
-	public void timerstop(View view) {
-		thankyou = (Button) view;
-		tijd = System.currentTimeMillis() - tijd1;
-		workoutText.setText(String.valueOf(tijd));
-
-	}*/
+	/*
+	 * public void timer(View view) { startbutton = (Button) view; if
+	 * (startbutton.getText().equals("Start")) { tijd1 =
+	 * System.currentTimeMillis(); startbutton.setText("Pauze"); //Declare the
+	 * timer Timer t = new Timer(); //Set the schedule function and rate
+	 * t.scheduleAtFixedRate(new TimerTask()) {
+	 * 
+	 * public void run() {
+	 * workoutText.setText(String.valueOf(System.currentTimeMillis()-tijd1)); }
+	 * 
+	 * }, //Set how long before to start calling the TimerTask (in milliseconds)
+	 * 0, //Set the amount of time between each execution (in milliseconds)
+	 * 1000); } else if(startbutton.getText().equals("Pauze")) { tijdpauze =
+	 * System.currentTimeMillis(); startbutton.setText("Doorgaan"); } else
+	 * if(startbutton.getText().equals("Doorgaan")) { tijd1 +=
+	 * (System.currentTimeMillis()-tijdpauze); startbutton.setText("Pauze"); }
+	 * 
+	 * }
+	 * 
+	 * public void timerstop(View view) { thankyou = (Button) view; tijd =
+	 * System.currentTimeMillis() - tijd1;
+	 * workoutText.setText(String.valueOf(tijd));
+	 * 
+	 * }
+	 */
 
 	private void rendering() {
 		// TODO Auto-generated method stub

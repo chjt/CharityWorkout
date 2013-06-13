@@ -6,13 +6,18 @@
         <item>GPB £</item>
         <item>USD $</item>
     </string-array>
-    
     <string-array name="currencyValues">
         <item>EUR</item>
         <item>GBP</item>
         <item>USD</item>
     </string-array>
-    
-    
+    <string-array name="langEntries">
+        <item>Dutch (NL)</item>
+        <item>English (US)</item>
+    </string-array>
+    <string-array name="langValues">
+        <item>nl</item>
+        <item>en</item>
+    </string-array>
 
 </resources>
