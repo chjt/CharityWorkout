@@ -36,12 +36,21 @@
             android:value="AIzaSyCcnK5_HKAtb2Mnp5AUnXNJ3SPOXSeu0GQ" />
 
         <activity
+            android:name="com.c1.charityworkout.Splash"
+             >
+            <intent-filter>
+                <action android:name="android.c1.CharityWorkout.SPLASH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.c1.charityworkout.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.c1.CharityWorkout.MAINACTIVITY" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
