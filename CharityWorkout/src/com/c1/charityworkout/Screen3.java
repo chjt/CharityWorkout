@@ -1,67 +1,222 @@
 package com.c1.charityworkout;
 
-//import java.util.Timer;
+
+import java.util.ArrayList;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.gesture.GestureOverlayView;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
-//import android.support.v4.view.MotionEventCompat;
-//import android.util.Log;
-//import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-//import android.support.v4.view.GestureDetectorCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Screen3 extends Activity implements OnTouchListener {
+public class Screen3 extends FragmentActivity implements OnTouchListener, LocationListener  {
 	Button thankyou, startbutton;
 	float startX, endX;
 	GestureOverlayView main;
 	ImageView imgView;
 	private int y;
-	// private long tijd1, tijdpauze;
 	public static long tijd;
 	TextView workoutText;
+	
+	private LocationManager locationManager;
+	private String provider;
 
-	// private static final String DEBUG_TAG = "Gestures";
+	// the map
+	private GoogleMap theMap;
+	ArrayList<LatLng> pointList = new ArrayList<LatLng>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.screen_3);
 		rendering();
+		theMap = ((SupportMapFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.the_map)).getMap();
+		LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
+		boolean enabledGPS = service
+				.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if (!enabledGPS) {
+			// Show gps settings...
+			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+					this);
+
+			// set title
+			alertDialogBuilder.setTitle("Turn On Your GPS!");
+
+			// set dialog message
+			alertDialogBuilder
+					.setMessage("Please turn on your GPS!")
+					.setCancelable(false)
+					.setPositiveButton("Yes",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									Intent intent = new Intent(
+											Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+									startActivity(intent);
+								}
+							})
+					.setNegativeButton("No",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									// if this button is clicked, just close
+									// the dialog box and do nothing
+									dialog.cancel();
+								}
+							});
+
+			// create alert dialog
+			AlertDialog alertDialog = alertDialogBuilder.create();
+
+			// show it
+			alertDialog.show();
+		}
+
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		// Define the criteria how to select the location provider -> use
+		// default
+		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
+		provider = locationManager.getBestProvider(criteria, true);
+	    Location location = locationManager.getLastKnownLocation(provider);
+
+		// Initialize the location fields
+		if (location != null) {
+			Toast.makeText(
+					this,
+					"Last known location is available with selected Provider "
+							+ provider, Toast.LENGTH_SHORT).show();
+			onLocationChanged(location);
+		} else {
+
+			// do something
+			Toast.makeText(this, "Location not available ", Toast.LENGTH_SHORT)
+					.show();
+		}
 	}
 
-	/*
-	 * public void timer(View view) { startbutton = (Button) view; if
-	 * (startbutton.getText().equals("Start")) { tijd1 =
-	 * System.currentTimeMillis(); startbutton.setText("Pauze"); //Declare the
-	 * timer Timer t = new Timer(); //Set the schedule function and rate
-	 * t.scheduleAtFixedRate(new TimerTask()) {
-	 * 
-	 * public void run() {
-	 * workoutText.setText(String.valueOf(System.currentTimeMillis()-tijd1)); }
-	 * 
-	 * }, //Set how long before to start calling the TimerTask (in milliseconds)
-	 * 0, //Set the amount of time between each execution (in milliseconds)
-	 * 1000); } else if(startbutton.getText().equals("Pauze")) { tijdpauze =
-	 * System.currentTimeMillis(); startbutton.setText("Doorgaan"); } else
-	 * if(startbutton.getText().equals("Doorgaan")) { tijd1 +=
-	 * (System.currentTimeMillis()-tijdpauze); startbutton.setText("Pauze"); }
-	 * 
-	 * }
-	 * 
-	 * public void timerstop(View view) { thankyou = (Button) view; tijd =
-	 * System.currentTimeMillis() - tijd1;
-	 * workoutText.setText(String.valueOf(tijd));
-	 * 
-	 * }
-	 */
+	// A callback method, which is invoked on configuration is changed
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// Adding the pointList arraylist to Bundle
+		outState.putParcelableArrayList("markers", pointList);
+
+		// Saving the bundle
+		super.onSaveInstanceState(outState);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		locationManager.requestLocationUpdates(provider, 30000, 30, this);
+	}
+
+	/* Remove the locationlistener updates when Activity is paused */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		locationManager.removeUpdates(this);
+	}
+
+	@Override
+	public void onLocationChanged(Location location) {
+		double lat = location.getLatitude();
+		double lng = location.getLongitude();
+		LatLng coordinate = new LatLng(lat, lng);
+		Toast.makeText(this,
+				"Location " + coordinate.latitude + "," + coordinate.longitude,
+				Toast.LENGTH_SHORT).show();
+
+	// Instantiating the class MarkerOptions to plot marker on the map
+    MarkerOptions markerOptions = new MarkerOptions();
+
+    // Setting latitude and longitude of the marker position
+    markerOptions.position(coordinate);
+
+    // Setting title of the infowindow of the marker
+    markerOptions.title("Position");
+    
+    // Setting icon of the marker
+    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+
+    // Setting the content of the infowindow of the marker
+    markerOptions.snippet("Latitude:"+coordinate.latitude+","+"Longitude:"+coordinate.longitude);
+
+    // Instantiating the class PolylineOptions to plot polyline in the map
+    PolylineOptions polylineOptions = new PolylineOptions();
+
+    // Setting the color of the polyline
+    polylineOptions.color(Color.RED);
+
+    // Setting the width of the polyline
+    polylineOptions.width(7);
+
+    // Adding the taped point to the ArrayList
+    pointList.add(coordinate);
+
+    // Setting points of polyline
+    polylineOptions.addAll(pointList);
+
+    // Adding the polyline to the map
+    theMap.addPolyline(polylineOptions);
+
+    // Adding the marker to the map
+    theMap.addMarker(markerOptions);
+    
+    theMap.animateCamera(CameraUpdateFactory.newLatLngZoom(coordinate, 16));
+
+}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		Toast.makeText(this, "Provider disabled " + provider,
+				Toast.LENGTH_SHORT).show();
+
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		Toast.makeText(this, "Provider enabled " + provider, Toast.LENGTH_SHORT)
+				.show();
+
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		Toast.makeText(this, "Provider status changed " + provider,
+				Toast.LENGTH_SHORT).show();
+
+	}
+
+
+
 
 	private void rendering() {
 		// TODO Auto-generated method stub
@@ -106,5 +261,8 @@ public class Screen3 extends Activity implements OnTouchListener {
 		}
 		return true;
 	}
-
 }
+
+
+			
+

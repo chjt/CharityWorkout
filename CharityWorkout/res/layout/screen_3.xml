@@ -12,7 +12,6 @@
         android:uncertainGestureColor="@android:color/transparent" >
 
         <LinearLayout
-            
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" >
@@ -28,8 +27,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="25dp"
                 android:layout_marginTop="30dp"
-                android:height="25dp"
                 android:gravity="center"
+                android:height="25dp"
                 android:text="Workout Data"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -66,6 +65,14 @@
                     android:text="@string/stop"
                     android:textColor="#ffffff" />
             </LinearLayout>
+
+            <fragment
+                android:id="@+id/the_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="140"
+                class="com.google.android.gms.maps.SupportMapFragment" />
         </LinearLayout>
     </android.gesture.GestureOverlayView>
 
