@@ -2,6 +2,7 @@ package com.c1.charityworkout;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.view.Window;
 
 public class Prefs extends PreferenceActivity {
 
