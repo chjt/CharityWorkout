@@ -7,9 +7,9 @@ import android.os.Bundle;
 public class Splash extends Activity {
 
 	@Override
-	protected void onCreate(Bundle RandomVariableName) {
+	protected void onCreate(Bundle Splash) {
 		// TODO Auto-generated method stub
-		super.onCreate(RandomVariableName);
+		super.onCreate(Splash);
 		setContentView(R.layout.splash);
 		Thread timer = new Thread() {
 			public void run() {
@@ -18,8 +18,8 @@ public class Splash extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
-					Intent openStartingPoint = new Intent("com.example.thenewboston.MENU");
-					startActivity(openStartingPoint);
+					Intent openMainActivity = new Intent("com.c1.charityworkout.mainActivity");
+					startActivity(openMainActivity);
 				}
 			}
 		};
