@@ -61,9 +61,9 @@ public class Screen3 extends Activity implements OnClickListener,
 		workoutText = (TextView) findViewById(R.id.textView);
 		y = com.c1.charityworkout.MainActivity.x;
 		imgView = (ImageView) findViewById(R.id.imageView2);
-		bStart = (Button) findViewById(R.id.thankyou);
+		bStart = (Button) findViewById(R.id.start);
 		bStart.setOnClickListener(this);
-		bStop = (Button) findViewById(R.id.history);
+		bStop = (Button) findViewById(R.id.stop);
 		bStop.setOnClickListener(this);
 		Drawable image2 = getResources().getDrawable(y);
 		imgView.setImageDrawable(image2);
@@ -105,13 +105,13 @@ public class Screen3 extends Activity implements OnClickListener,
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
-		case R.id.thankyou:
+		case R.id.start:
 			if (startW != true) {
 				startW = true;
 				startTimer();
 			}
 			break;
-		case R.id.history:
+		case R.id.stop:
 			if (startW != false) {
 				startW = false;
 			}
