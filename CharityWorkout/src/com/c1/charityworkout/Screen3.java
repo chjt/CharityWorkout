@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Screen3 extends Activity implements OnClickListener,
-		OnTouchListener, Runnable {
+		OnTouchListener {
 
 	// Variables for Swipe Gesture
 	float startX, endX;
@@ -43,7 +43,6 @@ public class Screen3 extends Activity implements OnClickListener,
 	}
 
 	private void startTimer() {
-
 		timer = new Thread() {
 			public void run() {
 				while (startW == true) {
@@ -116,12 +115,6 @@ public class Screen3 extends Activity implements OnClickListener,
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
