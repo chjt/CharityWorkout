@@ -35,13 +35,11 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCcnK5_HKAtb2Mnp5AUnXNJ3SPOXSeu0GQ" />
 
-        <activity
-            android:name="com.c1.charityworkout.Splash"
-             >
+        <activity android:name="com.c1.charityworkout.Splash" >
             <intent-filter>
                 <action android:name="android.c1.CharityWorkout.SPLASH" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
