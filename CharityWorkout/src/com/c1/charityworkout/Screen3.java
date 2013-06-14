@@ -15,41 +15,64 @@ import android.widget.TextView;
 
 public class Screen3 extends Activity implements OnClickListener,
 		OnTouchListener, Runnable {
-	Button bStart, bStop;
+
+	// Variables for Swipe Gesture
 	float startX, endX;
 	GestureOverlayView main;
-	ImageView imgView;
-	private int y;
-	long currentTime = 0;
-	long newTime = 0;
-	String counter;
+
+	// Variables for Timer
+	long currentTime = 0, newTime = 0;
+	int minTimer = 0;
+	Button bStart, bStop;
+	String seconds, minutes = "00";
 	Thread timer;
 	Boolean startW = false;
-	public static long tijd;
 	TextView workoutText;
+
+	// Variables unsorted
+	ImageView imgView;
+	private int y;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
-
+		currentTime = System.currentTimeMillis();
 		rendering();
 	}
 
 	private void startTimer() {
 
-		currentTime = System.currentTimeMillis();
 		timer = new Thread() {
 			public void run() {
 				while (startW == true) {
-					newTime = (System.currentTimeMillis() - currentTime) / 1000;
-					counter = Long.toString(newTime);
-					workoutText.post(new Runnable() {
-						public void run() {
-							workoutText.setText(counter + " sec.");
+					try {
+						sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally {
+						newTime = (System.currentTimeMillis() - currentTime) / 1000;
+						if (newTime % 60 == 0) {
+							minTimer++;
+							minutes = Integer.toString(minTimer);
+							if (minutes.length() == 1) {
+								minutes = "0" + minutes;
+							}
 						}
-					});
+
+						newTime = newTime - (60 * minTimer);
+						seconds = Long.toString(newTime);
+						if (seconds.length() == 1) {
+							seconds = "0" + seconds;
+						}
+						workoutText.post(new Runnable() {
+							public void run() {
+								workoutText.setText(minutes + ":" + seconds);
+							}
+						});
+					}
 				}
 			}
 		};
