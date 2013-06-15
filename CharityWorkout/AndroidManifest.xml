@@ -36,13 +36,23 @@
             android:value="AIzaSyCcnK5_HKAtb2Mnp5AUnXNJ3SPOXSeu0GQ" />
 
         <activity
-            android:name="com.c1.charityworkout.MainActivity"
+            android:name="com.c1.charityworkout.SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.c1.charityworkout.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.c1.CharityWorkout.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -57,8 +67,8 @@
         </activity>
         <activity
             android:name="com.c1.charityworkout.Prefs"
-            android:label="@string/app_name" 
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.c1.charityworkout.PREFS" />
 
@@ -67,8 +77,8 @@
         </activity>
         <activity
             android:name="com.c1.charityworkout.Screen3"
-            android:label="@string/app_name" 
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.c1.CharityWorkout.SCREEN3" />
 
@@ -77,8 +87,8 @@
         </activity>
         <activity
             android:name="com.c1.charityworkout.thankyou"
-            android:label="@string/app_name" 
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.c1.CharityWorkout.THANKYOU" />
 
