@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <ListPreference android:title="Valuta"
+        android:summary="Welke valuta weer te geven voor donaties"
+        android:key="prefCurr"
+        android:entries="@array/currencyEntries"
+        android:entryValues="@array/currencyValues" />
+    
+    <ListPreference android:title="Taal"
+        android:summary="Welke taal de app moet zijn"
+        android:key="prefLang"
+        android:entries="@array/langEntries"
+        android:entryValues="@array/langValues" />
+    
+</PreferenceScreen>
