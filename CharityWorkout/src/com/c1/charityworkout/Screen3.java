@@ -10,8 +10,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -49,6 +47,7 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 	// the map
 	private GoogleMap theMap;
 	ArrayList<LatLng> pointList = new ArrayList<LatLng>();
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 		// default
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE);
-		provider = locationManager.getBestProvider(criteria, true);
+		provider = locationManager.getBestProvider(criteria, false);
 	    Location location = locationManager.getLastKnownLocation(provider);
 
 		// Initialize the location fields
@@ -120,18 +119,29 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 			Toast.makeText(this, "Location not available ", Toast.LENGTH_SHORT)
 					.show();
 		}
-	}
 
+	// Restoring the markers on configuration changes
+    if(savedInstanceState!=null){
+        if(savedInstanceState.containsKey("markers")){
+            pointList = savedInstanceState.getParcelableArrayList("markers");
+            if(pointList!=null){
+                for(int i=0;i<pointList.size();i++){
+                	drawMarker(pointList.get(i));
+                }
+            }
+        }
+    }
+}
 	// A callback method, which is invoked on configuration is changed
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		// Adding the pointList arraylist to Bundle
-		outState.putParcelableArrayList("markers", pointList);
-
-		// Saving the bundle
-		super.onSaveInstanceState(outState);
-	}
-
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // Adding the pointList arraylist to Bundle
+        outState.putParcelableArrayList("markers", pointList);
+ 
+        // Saving the bundle
+        super.onSaveInstanceState(outState);
+    }
+    
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -142,7 +152,6 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 	@Override
 	protected void onPause() {
 		super.onPause();
-		locationManager.removeUpdates(this);
 	}
 
 	@Override
@@ -150,10 +159,10 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 		double lat = location.getLatitude();
 		double lng = location.getLongitude();
 		LatLng coordinate = new LatLng(lat, lng);
-		Toast.makeText(this,
-				"Location " + coordinate.latitude + "," + coordinate.longitude,
-				Toast.LENGTH_SHORT).show();
+		drawMarker(coordinate);
+	}
 
+		private void drawMarker(LatLng coordinate){
 	// Instantiating the class MarkerOptions to plot marker on the map
     MarkerOptions markerOptions = new MarkerOptions();
 
@@ -214,8 +223,6 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 				Toast.LENGTH_SHORT).show();
 
 	}
-
-
 
 
 	private void rendering() {
