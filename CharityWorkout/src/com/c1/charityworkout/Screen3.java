@@ -21,7 +21,7 @@ public class Screen3 extends Activity implements OnClickListener,
 	GestureOverlayView main;
 
 	// Variables for Timer
-	long currentTime = 0, newTime = 0;
+	long currentTime = 0, newTime = 0, pauseTime = 0, secondsCalc = 0;
 	int minTimer = 0;
 	Button bStart, bStop;
 	String seconds, minutes = "00";
@@ -38,13 +38,23 @@ public class Screen3 extends Activity implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
-		currentTime = System.currentTimeMillis();
 		rendering();
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		while (secondsCalc / 60 > 1) {
+			minTimer++;
+		}
+
 	}
 
 	private void startTimer() {
 		timer = new Thread() {
 			public void run() {
+				currentTime = System.currentTimeMillis();
 				while (startW == true) {
 					try {
 						sleep(1000);
@@ -52,7 +62,8 @@ public class Screen3 extends Activity implements OnClickListener,
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} finally {
-						newTime = (System.currentTimeMillis() - currentTime) / 1000;
+						newTime = ((System.currentTimeMillis() - currentTime) / 1000)
+								+ pauseTime;
 						if (newTime % 60 == 0) {
 							minTimer++;
 							minutes = Integer.toString(minTimer);
@@ -61,14 +72,17 @@ public class Screen3 extends Activity implements OnClickListener,
 							}
 						}
 
-						newTime = newTime - (60 * minTimer);
-						seconds = Long.toString(newTime);
+						secondsCalc = newTime - (60 * minTimer);
+						seconds = Long.toString(secondsCalc);
 						if (seconds.length() == 1) {
 							seconds = "0" + seconds;
 						}
 						workoutText.post(new Runnable() {
 							public void run() {
-								workoutText.setText(minutes + ":" + seconds);
+								if (startW == true) {
+									workoutText
+											.setText(minutes + ":" + seconds);
+								}
 							}
 						});
 					}
@@ -130,6 +144,9 @@ public class Screen3 extends Activity implements OnClickListener,
 		case R.id.stop:
 			if (startW != false) {
 				startW = false;
+
+				pauseTime = newTime;
+				workoutText.setText(minutes + ":" + seconds + " [PAUSED]");
 			}
 			break;
 		}
