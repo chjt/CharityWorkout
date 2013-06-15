@@ -10,6 +10,9 @@
 
     <!-- Mainmenu Strings -->
     <string name="homeText">Please select your workout</string>
+    
+    <!-- Workout Screen Strings -->
+    <string name="pauseWorkout">PAUSED</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="hello_world">Hello world!</string>

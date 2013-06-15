@@ -21,10 +21,10 @@ public class Screen3 extends Activity implements OnClickListener,
 	GestureOverlayView main;
 
 	// Variables for Timer
-	long currentTime = 0, newTime = 0, pauseTime = 0, secondsCalc = 0;
+	long currentTime = 0, newTime = 0, pauseTime = 55, secondsCalc = 0;
 	int minTimer = 0;
 	Button bStart, bStop;
-	String seconds, minutes = "00";
+	String seconds, minutes = "00", pauseMessage;
 	Thread timer;
 	Boolean startW = false;
 	TextView workoutText;
@@ -64,15 +64,15 @@ public class Screen3 extends Activity implements OnClickListener,
 					} finally {
 						newTime = ((System.currentTimeMillis() - currentTime) / 1000)
 								+ pauseTime;
-						if (newTime % 60 == 0) {
+						secondsCalc = newTime - (60 * minTimer);
+						if (secondsCalc / 60 >= 1) {
 							minTimer++;
 							minutes = Integer.toString(minTimer);
 							if (minutes.length() == 1) {
 								minutes = "0" + minutes;
+								secondsCalc = secondsCalc - 60;
 							}
-						}
-
-						secondsCalc = newTime - (60 * minTimer);
+						}						
 						seconds = Long.toString(secondsCalc);
 						if (seconds.length() == 1) {
 							seconds = "0" + seconds;
@@ -105,6 +105,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		imgView.setImageDrawable(image2);
 		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
 		main.setOnTouchListener(this);
+		pauseMessage = getResources().getString(R.string.pauseWorkout);
 		startX = 0;
 		endX = 0;
 	}
@@ -146,7 +147,7 @@ public class Screen3 extends Activity implements OnClickListener,
 				startW = false;
 
 				pauseTime = newTime;
-				workoutText.setText(minutes + ":" + seconds + " [PAUSED]");
+				workoutText.setText(minutes + ":" + seconds + " [" + pauseMessage + "]");
 			}
 			break;
 		}
