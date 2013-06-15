@@ -128,10 +128,10 @@ public class Screen3 extends Activity implements OnClickListener,
 
 		if (startX != 0 && endX != 0) {
 			if (endX - startX > 120) {
-				workoutText.setText("rechts");
+				
 			}
 			if (endX - startX < -120) {
-				workoutText.setText("links");
+			
 			}
 		}
 		return true;
