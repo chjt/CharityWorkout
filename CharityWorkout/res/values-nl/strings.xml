@@ -13,6 +13,8 @@
     
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUZE</string>
+    <string name="stopWarning">Tik nogmaals op \'Stop\' om je workout te stoppen.</string>
+    <string name="stopWorkout">GESTOPT</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="hello_world">Hallo wereld!</string>

@@ -13,6 +13,8 @@
     
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUSED</string>
+    <string name="stopWarning">Press \'Stop\' again to end your workout.</string>
+    <string name="stopWorkout">ENDED</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="hello_world">Hello world!</string>

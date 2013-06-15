@@ -12,6 +12,7 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Screen3 extends Activity implements OnClickListener,
 		OnTouchListener {
@@ -21,10 +22,11 @@ public class Screen3 extends Activity implements OnClickListener,
 	GestureOverlayView main;
 
 	// Variables for Timer
-	long currentTime = 0, newTime = 0, pauseTime = 55, secondsCalc = 0;
+	long currentTime = 0, newTime = 0, pauseTime = 0, secondsCalc = 0;
 	int minTimer = 0;
 	Button bStart, bStop;
-	String seconds, minutes = "00", pauseMessage;
+	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
+			stopMessage, timerText;
 	Thread timer;
 	Boolean startW = false;
 	TextView workoutText;
@@ -72,7 +74,7 @@ public class Screen3 extends Activity implements OnClickListener,
 								minutes = "0" + minutes;
 								secondsCalc = secondsCalc - 60;
 							}
-						}						
+						}
 						seconds = Long.toString(secondsCalc);
 						if (seconds.length() == 1) {
 							seconds = "0" + seconds;
@@ -80,8 +82,8 @@ public class Screen3 extends Activity implements OnClickListener,
 						workoutText.post(new Runnable() {
 							public void run() {
 								if (startW == true) {
-									workoutText
-											.setText(minutes + ":" + seconds);
+									timerText = minutes + ":" + seconds;
+									workoutText.setText(timerText);
 								}
 							}
 						});
@@ -106,8 +108,11 @@ public class Screen3 extends Activity implements OnClickListener,
 		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
 		main.setOnTouchListener(this);
 		pauseMessage = getResources().getString(R.string.pauseWorkout);
+		stopWarningMsg = getResources().getString(R.string.stopWarning);
+		stopMessage = getResources().getString(R.string.stopWorkout);
 		startX = 0;
 		endX = 0;
+		timerText = minutes + ":" + seconds;
 	}
 
 	@Override
@@ -140,14 +145,21 @@ public class Screen3 extends Activity implements OnClickListener,
 			if (startW != true) {
 				startW = true;
 				startTimer();
+				workoutText.setText(timerText);
 			}
 			break;
 		case R.id.stop:
 			if (startW != false) {
 				startW = false;
-
 				pauseTime = newTime;
-				workoutText.setText(minutes + ":" + seconds + " [" + pauseMessage + "]");
+				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
+				workoutText.setText(timerText + " ["
+						+ pauseMessage + "]");
+			} else {
+				pauseTime = 0;
+				workoutText.setText(timerText + " ["
+						+ stopMessage + "]");
+				timerText = "00:00";
 			}
 			break;
 		}
