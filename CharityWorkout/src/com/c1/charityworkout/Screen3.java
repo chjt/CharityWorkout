@@ -1,8 +1,18 @@
 package com.c1.charityworkout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import android.app.Activity;
+import android.content.Context;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -30,6 +40,12 @@ public class Screen3 extends Activity implements OnClickListener,
 	Thread timer;
 	Boolean startW = false;
 	TextView workoutText;
+	
+	//Variables for Map
+	GoogleMap workoutMap;
+	LocationManager locationManager;
+	LocationListener locationListener;
+	Location location;
 
 	// Variables unsorted
 	ImageView imgView;
@@ -41,6 +57,29 @@ public class Screen3 extends Activity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
 		rendering();
+		locationManager();
+		mapsRender();
+		
+		
+	}
+
+	private void locationManager() {
+		// TODO Auto-generated method stub
+		locationManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
+		locationListener = new MapLocationListener(this);
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+		location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	}
+
+	private void mapsRender() {
+		// TODO Auto-generated method stub
+		workoutMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.fragment1)).getMap();
+		workoutMap.addMarker(new MarkerOptions().position(new LatLng(51,4)).title("test"));
+		workoutMap.setMyLocationEnabled(true);
+		workoutMap.getUiSettings().setZoomControlsEnabled(false);
+		workoutMap.getUiSettings().setMyLocationButtonEnabled(false);
+		workoutMap.getUiSettings().setZoomGesturesEnabled(false);
+		workoutMap.getUiSettings().setScrollGesturesEnabled(false);
 	}
 
 	@Override
@@ -112,6 +151,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		stopMessage = getResources().getString(R.string.stopWorkout);
 		startX = 0;
 		endX = 0;
+
 		timerText = minutes + ":" + seconds;
 	}
 
@@ -153,12 +193,10 @@ public class Screen3 extends Activity implements OnClickListener,
 				startW = false;
 				pauseTime = newTime;
 				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
-				workoutText.setText(timerText + " ["
-						+ pauseMessage + "]");
+				workoutText.setText(timerText + " [" + pauseMessage + "]");
 			} else {
 				pauseTime = 0;
-				workoutText.setText(timerText + " ["
-						+ stopMessage + "]");
+				workoutText.setText(timerText + " [" + stopMessage + "]");
 				timerText = "00:00";
 			}
 			break;

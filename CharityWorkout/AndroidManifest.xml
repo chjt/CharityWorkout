@@ -21,7 +21,7 @@
         android:required="true" />
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <application
@@ -33,7 +33,7 @@
         <!-- Put your google maps api key here... -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCcnK5_HKAtb2Mnp5AUnXNJ3SPOXSeu0GQ" />
+            android:value="AIzaSyDR36FX0_iXE5EcJqGEHsNffFv3xXiOKjU" />
 
         <activity
             android:name="com.c1.charityworkout.SplashScreen"
