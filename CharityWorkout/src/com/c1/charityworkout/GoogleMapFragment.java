@@ -1,12 +1,14 @@
 package com.c1.charityworkout;
 
+import java.util.List;
+
 import android.content.Context;
+import android.graphics.Color;
 import android.location.GpsStatus;
 import android.location.GpsStatus.Listener;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +20,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class GoogleMapFragment extends MapFragment implements LocationListener,
 		Listener {
 
 	GoogleMap workoutMap;
+	PolylineOptions lineOptions;
+	Polyline lineRoute;
 	Location myLocation;
 	Context myContext;
 	LocationManager locationManager;
@@ -43,6 +50,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		super.onViewCreated(view, savedInstanceState);
 		myContext = getActivity();
 		initializeMap();
+		initializeDraw();
 		initializeLocation();
 		if (myLocation != null) {
 			setInitialLocation();
@@ -61,24 +69,31 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 	}
 
+	private void initializeMap() {
+		// TODO Auto-generated method stub
+		workoutMap.setMyLocationEnabled(true);
+		workoutMap.getUiSettings().setZoomControlsEnabled(false);
+		workoutMap.getUiSettings().setMyLocationButtonEnabled(false);
+		workoutMap.getUiSettings().setZoomGesturesEnabled(false);
+		workoutMap.getUiSettings().setScrollGesturesEnabled(false);
+		workoutMap.getUiSettings().setTiltGesturesEnabled(false);
+		workoutMap.getUiSettings().setRotateGesturesEnabled(false);
+
+	}
+	
+	private void initializeDraw() {
+		lineOptions = new PolylineOptions().width(5).color(Color.RED);
+		lineRoute = workoutMap.addPolyline(lineOptions);
+	}
+
 	private void setInitialLocation() {
 		// TODO Auto-generated method stub
 		CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(
 				myLocation.getLatitude(), myLocation.getLongitude()));
-		CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
+		CameraUpdate zoom = CameraUpdateFactory.zoomTo(20);
 
 		workoutMap.moveCamera(center);
 		workoutMap.animateCamera(zoom);
-
-	}
-
-	private void initializeMap() {
-		// TODO Auto-generated method stub
-		workoutMap.setMyLocationEnabled(true);
-		workoutMap.getUiSettings().setZoomControlsEnabled(true);
-		workoutMap.getUiSettings().setMyLocationButtonEnabled(false);
-		workoutMap.getUiSettings().setZoomGesturesEnabled(false);
-		workoutMap.getUiSettings().setScrollGesturesEnabled(true);
 
 	}
 
@@ -96,12 +111,19 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 			myLocation = location;
 			CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(
 					myLocation.getLatitude(), myLocation.getLongitude()));
-			CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
-
-			workoutMap.moveCamera(center);
-			workoutMap.animateCamera(zoom);
+			workoutMap.animateCamera(center);
+			drawTrail();
 		}
 
+	}
+
+	private void drawTrail() {
+		// TODO Auto-generated method stub
+		lineRoute.getPoints();
+		LatLng newPoint = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+		List<LatLng> points = lineRoute.getPoints();
+		points.add(newPoint);
+		lineRoute.setPoints(points);
 	}
 
 	@Override
