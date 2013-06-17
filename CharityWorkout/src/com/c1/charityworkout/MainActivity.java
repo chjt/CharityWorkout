@@ -2,6 +2,9 @@ package com.c1.charityworkout;
 
 import java.util.Locale;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -26,6 +30,13 @@ public class MainActivity extends Activity {
 		setLocale();
 		setContentView(R.layout.activity_main);
 		initialize();
+		int resultCode = GooglePlayServicesUtil
+				.isGooglePlayServicesAvailable(this);
+		if (resultCode != ConnectionResult.SUCCESS) {
+			Toast.makeText(this, "INVALID PLAY SERVICES", 2000).show();
+		} else {
+			Toast.makeText(this, "VALID PLAY SERVICES", 2000).show();
+		}
 
 	}
 

@@ -1,20 +1,11 @@
 package com.c1.charityworkout;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.Activity;
-import android.content.Context;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.View;
@@ -42,11 +33,6 @@ public class Screen3 extends Activity implements OnClickListener,
 	Boolean startW = false;
 	TextView workoutText;
 	
-	//Variables for Map
-	GoogleMap workoutMap;
-	LocationManager locationManager;
-	LocationListener locationListener;
-	Location location;
 
 	// Variables unsorted
 	ImageView imgView;
@@ -58,8 +44,6 @@ public class Screen3 extends Activity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
 		rendering();
-		
-		
 	}
 
 	@Override
