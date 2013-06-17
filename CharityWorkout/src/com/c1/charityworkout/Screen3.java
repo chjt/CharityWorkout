@@ -30,9 +30,8 @@ public class Screen3 extends Activity implements OnClickListener,
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
 			stopMessage, timerText;
 	Thread timer;
-	Boolean startW = false;
+	static Boolean startW = false;
 	TextView workoutText;
-	
 
 	// Variables unsorted
 	ImageView imgView;
@@ -132,10 +131,10 @@ public class Screen3 extends Activity implements OnClickListener,
 
 		if (startX != 0 && endX != 0) {
 			if (endX - startX > 120) {
-				
+
 			}
 			if (endX - startX < -120) {
-			
+
 			}
 		}
 		return true;
@@ -145,16 +144,24 @@ public class Screen3 extends Activity implements OnClickListener,
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
+
 		case R.id.start:
-			if (startW != true) {
-				startW = true;
-				startTimer();
-				workoutText.setText(timerText);
+			if (GoogleMapFragment.gpsReady == true) {
+				if (startW != true) {
+					startW = true;
+					GoogleMapFragment.locTrack = true;
+					startTimer();
+					workoutText.setText(timerText);
+					Toast.makeText(this, "Workout started", 1000).show();
+				}
+			} else {
+				Toast.makeText(this, "Please wait for GPS Fix", 2000).show();
 			}
 			break;
 		case R.id.stop:
 			if (startW != false) {
 				startW = false;
+				GoogleMapFragment.locTrack = false;
 				pauseTime = newTime;
 				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
 				workoutText.setText(timerText + " [" + pauseMessage + "]");
