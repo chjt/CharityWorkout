@@ -14,6 +14,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.View;
@@ -57,29 +58,8 @@ public class Screen3 extends Activity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
 		rendering();
-		locationManager();
-		mapsRender();
 		
 		
-	}
-
-	private void locationManager() {
-		// TODO Auto-generated method stub
-		locationManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
-		locationListener = new MapLocationListener(this);
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
-		location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-	}
-
-	private void mapsRender() {
-		// TODO Auto-generated method stub
-		workoutMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.fragment1)).getMap();
-		workoutMap.addMarker(new MarkerOptions().position(new LatLng(51,4)).title("test"));
-		workoutMap.setMyLocationEnabled(true);
-		workoutMap.getUiSettings().setZoomControlsEnabled(false);
-		workoutMap.getUiSettings().setMyLocationButtonEnabled(false);
-		workoutMap.getUiSettings().setZoomGesturesEnabled(false);
-		workoutMap.getUiSettings().setScrollGesturesEnabled(false);
 	}
 
 	@Override

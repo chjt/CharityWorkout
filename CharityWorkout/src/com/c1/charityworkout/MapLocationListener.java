@@ -14,8 +14,8 @@ public class MapLocationListener extends Screen3 implements LocationListener {
 	String gpsDis;
 	String gpsEna;
 	
-	public MapLocationListener(Context context) {
-		newContext = context;
+	public MapLocationListener(Context myContext) {
+		newContext = myContext;
 		gpsDis = newContext.getResources().getString(R.string.gpsDis);
 		gpsEna = newContext.getResources().getString(R.string.gpsEna);
 	}
@@ -23,7 +23,7 @@ public class MapLocationListener extends Screen3 implements LocationListener {
 	@Override
 	public void onLocationChanged(Location location) {
 		// TODO Auto-generated method stub
-		workoutMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()), 12.0f));
+		
 		
 	}
 
