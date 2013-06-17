@@ -3,6 +3,8 @@ package com.c1.charityworkout;
 
 import java.util.ArrayList;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -11,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,9 +24,11 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -43,10 +48,12 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 	
 	private LocationManager locationManager;
 	private String provider;
+	private float distance;
 
 	// the map
 	private GoogleMap theMap;
 	ArrayList<LatLng> pointList = new ArrayList<LatLng>();
+	ArrayList<Location> coordinates = new ArrayList<Location>();
 	
 
 	@Override
@@ -103,22 +110,8 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 		// default
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE);
-		provider = locationManager.getBestProvider(criteria, false);
-	    Location location = locationManager.getLastKnownLocation(provider);
+		provider = locationManager.getBestProvider(criteria, true);
 
-		// Initialize the location fields
-		if (location != null) {
-			Toast.makeText(
-					this,
-					"Last known location is available with selected Provider "
-							+ provider, Toast.LENGTH_SHORT).show();
-			onLocationChanged(location);
-		} else {
-
-			// do something
-			Toast.makeText(this, "Location not available ", Toast.LENGTH_SHORT)
-					.show();
-		}
 
 	// Restoring the markers on configuration changes
     if(savedInstanceState!=null){
@@ -145,7 +138,19 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 	@Override
 	protected void onResume() {
 		super.onResume();
-		locationManager.requestLocationUpdates(provider, 30000, 30, this);
+		int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
+		 
+        // Showing status
+        if(status==ConnectionResult.SUCCESS)
+        {}
+        else{
+        	Toast.makeText(this, "Google Play Services are not available",
+					Toast.LENGTH_SHORT).show();
+            int requestCode = 10;
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
+            dialog.show();
+        }
+		locationManager.requestLocationUpdates(provider, 0, 0, this);	
 	}
 
 	/* Remove the locationlistener updates when Activity is paused */
@@ -158,9 +163,26 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 	public void onLocationChanged(Location location) {
 		double lat = location.getLatitude();
 		double lng = location.getLongitude();
+		coordinates.add(location);
 		LatLng coordinate = new LatLng(lat, lng);
 		drawMarker(coordinate);
+		if (coordinates != null && coordinates.size() > 2) {
+			locationManager.removeUpdates(this);
+			calculateonstop();
+		}
 	}
+	
+	public void calculateonstop() {
+		if (coordinates != null && coordinates.size() > 2) {
+		for (int n = 0; n < coordinates.size()-1;n++){
+		distance += coordinates.get(n).distanceTo(coordinates.get(n + 1));
+		}
+		System.out.println(distance);
+		Toast.makeText(this, "The route was " +distance +"metres",
+				Toast.LENGTH_SHORT).show();
+		}
+	}
+
 
 		private void drawMarker(LatLng coordinate){
 	// Instantiating the class MarkerOptions to plot marker on the map
@@ -174,9 +196,6 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
     
     // Setting icon of the marker
     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-
-    // Setting the content of the infowindow of the marker
-    markerOptions.snippet("Latitude:"+coordinate.latitude+","+"Longitude:"+coordinate.longitude);
 
     // Instantiating the class PolylineOptions to plot polyline in the map
     PolylineOptions polylineOptions = new PolylineOptions();
@@ -219,8 +238,21 @@ public class Screen3 extends FragmentActivity implements OnTouchListener, Locati
 
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
-		Toast.makeText(this, "Provider status changed " + provider,
-				Toast.LENGTH_SHORT).show();
+		/* This is called when the GPS status alters */
+		switch (status) {
+		case LocationProvider.OUT_OF_SERVICE:
+			Toast.makeText(this, "Status Changed: Out of Service",
+					Toast.LENGTH_SHORT).show();
+			break;
+		case LocationProvider.TEMPORARILY_UNAVAILABLE:
+			Toast.makeText(this, "Status Changed: Temporarily Unavailable",
+					Toast.LENGTH_SHORT).show();
+			break;
+		case LocationProvider.AVAILABLE:
+			Toast.makeText(this, "Status Changed: Available",
+					Toast.LENGTH_SHORT).show();
+			break;
+		}
 
 	}
 
