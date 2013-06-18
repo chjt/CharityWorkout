@@ -30,8 +30,10 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 	GoogleMap workoutMap;
 	PolylineOptions lineOptions;
 	Polyline lineRoute;
-	Location myLocation;
+	Location myLocation, prevLocation;
 	Context myContext;
+	float[] result = new float[5];
+	float countedResult;
 	LocationManager locationManager;
 	static boolean gpsReady = false;
 	static boolean locTrack = false;
@@ -80,7 +82,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		workoutMap.getUiSettings().setRotateGesturesEnabled(false);
 
 	}
-	
+
 	private void initializeDraw() {
 		lineOptions = new PolylineOptions().width(5).color(Color.RED);
 		lineRoute = workoutMap.addPolyline(lineOptions);
@@ -90,7 +92,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		// TODO Auto-generated method stub
 		CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(
 				myLocation.getLatitude(), myLocation.getLongitude()));
-		CameraUpdate zoom = CameraUpdateFactory.zoomTo(20);
+		CameraUpdate zoom = CameraUpdateFactory.zoomTo(14);
 
 		workoutMap.moveCamera(center);
 		workoutMap.animateCamera(zoom);
@@ -108,19 +110,31 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 	public void onLocationChanged(Location location) {
 		// TODO Auto-generated method stub
 		if (locTrack == true) {
+			prevLocation = myLocation;
 			myLocation = location;
-			CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(
-					myLocation.getLatitude(), myLocation.getLongitude()));
-			workoutMap.animateCamera(center);
+			workoutMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(
+					myLocation.getLatitude(), myLocation.getLongitude())));
 			drawTrail();
+			calcDistance();
 		}
 
+	}
+
+	private void calcDistance() {
+		// TODO Auto-generated method stub
+		Location.distanceBetween(prevLocation.getLatitude(),
+				prevLocation.getLongitude(), myLocation.getLatitude(),
+				myLocation.getLongitude(), result);
+		countedResult = countedResult + result[0];
+		String resultString = Float.toString(countedResult);
+		Toast.makeText(myContext, resultString, 1000).show();
 	}
 
 	private void drawTrail() {
 		// TODO Auto-generated method stub
 		lineRoute.getPoints();
-		LatLng newPoint = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+		LatLng newPoint = new LatLng(myLocation.getLatitude(),
+				myLocation.getLongitude());
 		List<LatLng> points = lineRoute.getPoints();
 		points.add(newPoint);
 		lineRoute.setPoints(points);
