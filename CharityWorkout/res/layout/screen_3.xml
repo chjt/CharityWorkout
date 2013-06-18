@@ -69,8 +69,8 @@
             </LinearLayout>
 
             <fragment
-                android:id="@+id/fragment1"
-                android:name="com.google.android.gms.maps.MapFragment"
+                android:id="@+id/the_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
