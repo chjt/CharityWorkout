@@ -12,7 +12,6 @@
         android:uncertainGestureColor="@android:color/transparent" >
 
         <LinearLayout
-            
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" >
@@ -23,16 +22,52 @@
                 android:layout_height="82dp"
                 android:contentDescription="@string/image" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:height="25dp"
-                android:gravity="center"
-                android:text="Workout Data"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:orientation="vertical"
+                android:layout_margin="10dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="Timer" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="Distance" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1" >
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="Amount" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="Speed" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -70,11 +105,10 @@
 
             <fragment
                 android:id="@+id/workoutMap"
-                class="com.c1.charityworkout.GoogleMapFragment"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                class="com.c1.charityworkout.GoogleMapFragment" />
         </LinearLayout>
     </android.gesture.GestureOverlayView>
 

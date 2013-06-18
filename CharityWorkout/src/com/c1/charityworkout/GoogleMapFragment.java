@@ -20,7 +20,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -35,6 +34,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 	float[] result = new float[5];
 	float countedResult;
 	LocationManager locationManager;
+	static String totalDistance;
 	static boolean gpsReady = false;
 	static boolean locTrack = false;
 
@@ -126,8 +126,8 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 				prevLocation.getLongitude(), myLocation.getLatitude(),
 				myLocation.getLongitude(), result);
 		countedResult = countedResult + result[0];
-		String resultString = Float.toString(countedResult);
-		Toast.makeText(myContext, resultString, 1000).show();
+		totalDistance = Float.toString(countedResult / 1000);
+		Toast.makeText(myContext, totalDistance, 1000).show();
 	}
 
 	private void drawTrail() {

@@ -1,7 +1,5 @@
 package com.c1.charityworkout;
 
-import com.google.android.gms.maps.GoogleMap;
-
 import android.app.Activity;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
@@ -31,7 +29,7 @@ public class Screen3 extends Activity implements OnClickListener,
 			stopMessage, timerText;
 	Thread timer;
 	static Boolean startW = false;
-	TextView workoutText;
+	TextView timerView, distanceView;
 
 	// Variables unsorted
 	ImageView imgView;
@@ -81,11 +79,23 @@ public class Screen3 extends Activity implements OnClickListener,
 						if (seconds.length() == 1) {
 							seconds = "0" + seconds;
 						}
-						workoutText.post(new Runnable() {
+						timerView.post(new Runnable() {
 							public void run() {
 								if (startW == true) {
 									timerText = minutes + ":" + seconds;
-									workoutText.setText(timerText);
+									timerView.setText(timerText);
+								}
+							}
+						});
+						distanceView.post(new Runnable() {
+							public void run() {
+								String totalDistance = GoogleMapFragment.totalDistance;
+								
+								if (totalDistance != null) {
+									totalDistance = totalDistance.substring(0,3);
+									distanceView.setText(totalDistance + "  meters");
+								} else {
+									distanceView.setText("0 meters");								
 								}
 							}
 						});
@@ -98,7 +108,8 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void rendering() {
 		// TODO Auto-generated method stub
-		workoutText = (TextView) findViewById(R.id.textView);
+		timerView = (TextView) findViewById(R.id.textView);
+		distanceView = (TextView) findViewById(R.id.textView1);
 		y = com.c1.charityworkout.MainActivity.x;
 		imgView = (ImageView) findViewById(R.id.imageView2);
 		bStart = (Button) findViewById(R.id.start);
@@ -151,7 +162,7 @@ public class Screen3 extends Activity implements OnClickListener,
 					startW = true;
 					GoogleMapFragment.locTrack = true;
 					startTimer();
-					workoutText.setText(timerText);
+					timerView.setText(timerText);
 					Toast.makeText(this, "Workout started", 1000).show();
 				}
 			} else {
@@ -164,10 +175,10 @@ public class Screen3 extends Activity implements OnClickListener,
 				GoogleMapFragment.locTrack = false;
 				pauseTime = newTime;
 				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
-				workoutText.setText(timerText + " [" + pauseMessage + "]");
+				timerView.setText(timerText + " [" + pauseMessage + "]");
 			} else {
 				pauseTime = 0;
-				workoutText.setText(timerText + " [" + stopMessage + "]");
+				timerView.setText(timerText + " [" + stopMessage + "]");
 				timerText = "00:00";
 			}
 			break;
