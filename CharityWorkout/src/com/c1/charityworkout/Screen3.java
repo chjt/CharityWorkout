@@ -1,5 +1,6 @@
 package com.c1.charityworkout;
 
+import com.c1.charityworkout.R;
 import android.app.Activity;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
