@@ -183,13 +183,6 @@ public class Screen3 extends Activity implements OnClickListener,
 				pauseTime = 0;
 				timerView.setText(timerText + " [" + stopMessage + "]");
 				timerText = "00:00";
-				String time = timerView.getText().toString();
-				String distance = distanceView.getText().toString();
-				String amount = amountView.getText().toString();
-				data = new Bundle();
-				data.putString("timer", time);
-				data.putString("distance", distance);
-				data.putString("amount", amount);	
 			}
 			break;
 		}
