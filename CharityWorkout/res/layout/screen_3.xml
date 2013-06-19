@@ -34,14 +34,14 @@
                     android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/timerView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
                         android:text="Timer" />
 
                     <TextView
-                        android:id="@+id/textView1"
+                        android:id="@+id/distanceView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
@@ -54,14 +54,14 @@
                     android:weightSum="1" >
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/amountView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
                         android:text="Amount" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/speedView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"

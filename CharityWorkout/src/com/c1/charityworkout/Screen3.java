@@ -29,7 +29,8 @@ public class Screen3 extends Activity implements OnClickListener,
 			stopMessage, timerText;
 	Thread timer;
 	static Boolean startW = false;
-	TextView timerView, distanceView;
+	TextView timerView, distanceView, amountView;
+	Bundle data;
 
 	// Variables unsorted
 	ImageView imgView;
@@ -108,8 +109,9 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void rendering() {
 		// TODO Auto-generated method stub
-		timerView = (TextView) findViewById(R.id.textView);
-		distanceView = (TextView) findViewById(R.id.textView1);
+		timerView = (TextView) findViewById(R.id.timerView);
+		distanceView = (TextView) findViewById(R.id.distanceView);
+		amountView = (TextView) findViewById(R.id.amountView);
 		y = com.c1.charityworkout.MainActivity.x;
 		imgView = (ImageView) findViewById(R.id.imageView2);
 		bStart = (Button) findViewById(R.id.start);
@@ -180,6 +182,13 @@ public class Screen3 extends Activity implements OnClickListener,
 				pauseTime = 0;
 				timerView.setText(timerText + " [" + stopMessage + "]");
 				timerText = "00:00";
+				String time = timerView.getText().toString();
+				String distance = distanceView.getText().toString();
+				String amount = amountView.getText().toString();
+				data = new Bundle();
+				data.putString("timer", time);
+				data.putString("distance", distance);
+				data.putString("amount", amount);	
 			}
 			break;
 		}
