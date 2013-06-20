@@ -21,14 +21,11 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	ImageButton running, cycling, skateboard;
-	static int x;
-	String prefLocale;
-	Locale locale;
+	static int choice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setLocale();
 		setContentView(R.layout.activity_main);
 		initialize();
 		int resultCode = GooglePlayServicesUtil
@@ -46,21 +43,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onResume();
 	}
-
-	private void setLocale() {
-		SharedPreferences getLocale = PreferenceManager
-				.getDefaultSharedPreferences(getBaseContext());
-		Configuration config = getBaseContext().getResources()
-				.getConfiguration();
-		prefLocale = getLocale.getString("prefLang", "en");
-		locale = new Locale(prefLocale);
-		Locale.setDefault(locale);
-		config.locale = locale;
-		getBaseContext().getResources().updateConfiguration(config,
-				getBaseContext().getResources().getDisplayMetrics());
-
-	}
-
+	
 	private void initialize() {
 		// TODO Auto-generated method stub
 		running = (ImageButton) findViewById(R.id.imageButton);
@@ -72,7 +55,7 @@ public class MainActivity extends Activity {
 			public void onClick(View view) {
 				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
 				startActivity(next);
-				x = (R.drawable.runningbanner);
+				choice = (R.drawable.runningbanner);
 			}
 		});
 		cycling.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +63,7 @@ public class MainActivity extends Activity {
 			public void onClick(View view) {
 				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
 				startActivity(next);
-				x = (R.drawable.cyclingbanner);
+				choice = (R.drawable.cyclingbanner);
 			}
 		});
 		skateboard.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +71,7 @@ public class MainActivity extends Activity {
 			public void onClick(View view) {
 				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
 				startActivity(next);
-				x = (R.drawable.skateboardingbanner);
+				choice = (R.drawable.skateboardingbanner);
 			}
 		});
 	}

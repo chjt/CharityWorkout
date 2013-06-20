@@ -38,9 +38,9 @@ public class Screen3 extends Activity implements OnClickListener,
 	Bundle data;
 	Boolean threadFinished;
 
-	// Variables unsorted
+	// Variables of banner
 	ImageView imgView;
-	private int y;
+	private int banner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -136,13 +136,13 @@ public class Screen3 extends Activity implements OnClickListener,
 		distanceView = (TextView) findViewById(R.id.distanceView);
 		amountView = (TextView) findViewById(R.id.amountView);
 		speedView = (TextView) findViewById(R.id.speedView);
-		y = MainActivity.x;
+		banner = MainActivity.choice;
 		imgView = (ImageView) findViewById(R.id.imageView2);
 		bStart = (Button) findViewById(R.id.start);
 		bStart.setOnClickListener(this);
 		bStop = (Button) findViewById(R.id.stop);
 		bStop.setOnClickListener(this);
-		Drawable image2 = getResources().getDrawable(y);
+		Drawable image2 = getResources().getDrawable(banner);
 		imgView.setImageDrawable(image2);
 		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
 		main.setOnTouchListener(this);
