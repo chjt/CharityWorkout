@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	ImageButton running, cycling, skateboard;
+	ImageButton running, cycling, history;
 	static int choice;
 
 	@Override
@@ -48,12 +48,11 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		running = (ImageButton) findViewById(R.id.imageButton);
 		cycling = (ImageButton) findViewById(R.id.imageButton2);
-		skateboard = (ImageButton) findViewById(R.id.imageButton3);
 
 		running.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
+				Intent next = new Intent(MainActivity.this, Screen2.class);
 				startActivity(next);
 				choice = (R.drawable.runningbanner);
 			}
@@ -61,17 +60,16 @@ public class MainActivity extends Activity {
 		cycling.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
+				Intent next = new Intent(MainActivity.this, Screen2.class);
 				startActivity(next);
 				choice = (R.drawable.cyclingbanner);
 			}
 		});
-		skateboard.setOnClickListener(new View.OnClickListener() {
+		history.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent next = new Intent("android.c1.CharityWorkout.SCREEN2");
+				Intent next = new Intent(MainActivity.this, WorkoutHistory.class);
 				startActivity(next);
-				choice = (R.drawable.skateboardingbanner);
 			}
 		});
 	}
@@ -88,7 +86,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
 		case R.id.action_settings:
-			Intent p = new Intent("android.c1.charityworkout.PREFS");
+			Intent p = new Intent(MainActivity.this, Prefs.class);
 			startActivity(p);
 			break;
 		case R.id.exit_app:

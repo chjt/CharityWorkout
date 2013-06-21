@@ -2,6 +2,7 @@ package com.c1.charityworkout;
 
 import com.c1.charityworkout.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -42,6 +43,9 @@ public class Screen3 extends Activity implements OnClickListener,
 	ImageView imgView;
 	private int banner;
 
+	//Variables of Result
+	Bundle resultSend;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -211,9 +215,26 @@ public class Screen3 extends Activity implements OnClickListener,
 				}
 				pauseTime = 0;
 				minTimer = 0;
+				getResult();
 			}
 			break;
 		}
+	}
+
+	private void getResult() {
+		// TODO Auto-generated method stub
+		String speed = speedView.getText().toString();
+		String distance = distanceView.getText().toString();
+		String timer = timerView.getText().toString();
+		String amount = amountView.getText().toString();
+		resultSend = new Bundle();
+		resultSend.putString("speed", speed);
+		resultSend.putString("distance", distance);
+		resultSend.putString("timer", timer);
+		resultSend.putString("amount", amount);
+		Intent resultPage = new Intent(Screen3.this, ResultPage.class);
+		resultPage.putExtras(resultSend);
+		startActivity(resultPage);
 	}
 
 }

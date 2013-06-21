@@ -38,14 +38,14 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
-                        android:text="Timer" />
+                        android:text="@string/timer" />
 
                     <TextView
                         android:id="@+id/distanceView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
-                        android:text="Distance" />
+                        android:text="@string/distance" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -58,14 +58,14 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
-                        android:text="Amount" />
+                        android:text="@string/amount" />
 
                     <TextView
                         android:id="@+id/speedView"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
-                        android:text="Speed" />
+                        android:text="@string/speed" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -84,8 +84,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="50"
-                    android:background="#7bff71"
-                    android:enabled="true"
+                    android:background="#00ff00"
                     android:focusableInTouchMode="true"
                     android:minHeight="48dp"
                     android:minWidth="64dp"
@@ -94,11 +93,11 @@
                 <Button
                     android:id="@+id/stop"
                     android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="50"
-                    android:background="#ff252d"
+                    android:background="#ff0000"
                     android:text="@string/stop"
                     android:textColor="#ffffff" />
             </LinearLayout>

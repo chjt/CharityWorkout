@@ -16,18 +16,29 @@
     <string name="pauseWorkout">PAUZE</string>
     <string name="stopWarning">Tik nogmaals op \'Stop\' om je workout te stoppen.</string>
     <string name="stopWorkout">GESTOPT</string>
+    <string name="speed">Snelheid</string>
+    <string name="amount">Hoeveelheid</string>
+    <string name="timer">Tijd</string>
+    <string name="distance">Afstand</string>
 
+    <!-- Result strings -->
+    <string name="save">Sla op</string>
+    <string name="back">Ga terug</string>
+    
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is ingeschakeld</string>
     <string name="gpsDis">GPS is uitegschakeld</string>
 
     <!-- Unsorted Strings (sort asap) -->
-    <string name="hello_world">Hallo wereld!</string>
     <string name="amountText">Stel uw gewenste bedrag per kilometer in</string>
     <string name="image">afbeelding</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="setAmount">Eigen hoeveelheid:</string>
     <string name="submit">Verzenden</string>
+
+    <!-- History Strings -->
+    <string name="donation">Doneer</string>
+    <string name="delete">Verwijder</string>
 
 </resources>

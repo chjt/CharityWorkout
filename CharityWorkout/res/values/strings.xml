@@ -11,16 +11,24 @@
 
     <!-- Mainmenu Strings -->
     <string name="homeText">Please select your workout</string>
-    
+
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is currently enabled</string>
     <string name="gpsDis">GPS is currently disabled</string>
-    
+
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUSED</string>
     <string name="stopWarning">Press \'Stop\' again to end your workout.</string>
     <string name="stopWorkout">ENDED</string>
+    <string name="speed">Speed</string>
+    <string name="amount">Amount</string>
+    <string name="timer">Timer</string>
+    <string name="distance">Distance</string>
 
+    <!-- Result strings -->
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    
     <!-- Unsorted Strings (sort asap) -->
     <string name="hello_world">Hello world!</string>
     <string name="amountText">Please set your amount of donation per kilometer</string>
@@ -29,5 +37,9 @@
     <string name="stop">Stop</string>
     <string name="setAmount">Set your own amount</string>
     <string name="submit">Submit</string>
+
+    <!-- History strings -->
+    <string name="donation">Donate</string>
+    <string name="delete">Delete</string>
 
 </resources>
