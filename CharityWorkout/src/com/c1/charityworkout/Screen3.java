@@ -1,5 +1,6 @@
 package com.c1.charityworkout;
 
+import com.c1.charityworkout.R;
 import android.app.Activity;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
@@ -22,18 +23,24 @@ public class Screen3 extends Activity implements OnClickListener,
 	GestureOverlayView main;
 
 	// Variables for Timer
-	long currentTime = 0, newTime = 0, pauseTime = 0, secondsCalc = 0;
+	long currentTime = 0;
+	static long newTime = 0;
+	long pauseTime = 0;
+	long secondsCalc = 0;
 	int minTimer = 0;
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
 			stopMessage, timerText;
 	Thread timer;
 	static Boolean startW = false;
-	TextView timerView, distanceView;
 
-	// Variables unsorted
+	TextView timerView, distanceView, speedView, amountView;
+	Bundle data;
+	Boolean threadFinished;
+
+	// Variables of banner
 	ImageView imgView;
-	private int y;
+	private int banner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,7 @@ public class Screen3 extends Activity implements OnClickListener,
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} finally {
+						threadFinished = false;
 						newTime = ((System.currentTimeMillis() - currentTime) / 1000)
 								+ pauseTime;
 						secondsCalc = newTime - (60 * minTimer);
@@ -90,15 +98,31 @@ public class Screen3 extends Activity implements OnClickListener,
 						distanceView.post(new Runnable() {
 							public void run() {
 								String totalDistance = GoogleMapFragment.totalDistance;
-								
+
 								if (totalDistance != null) {
-									totalDistance = totalDistance.substring(0,3);
-									distanceView.setText(totalDistance + "  meters");
+									totalDistance = totalDistance.substring(0,
+											totalDistance.indexOf(".") + 3);
+									distanceView
+											.setText(totalDistance + "  km");
 								} else {
-									distanceView.setText("0 meters");								
+									distanceView.setText("0.00 km");
 								}
 							}
 						});
+						speedView.post(new Runnable() {
+							public void run() {
+								String averageSpeed = GoogleMapFragment.averageSpeedString;
+
+								if (averageSpeed != null) {
+									averageSpeed = averageSpeed.substring(0,
+											averageSpeed.indexOf(".") + 2);
+									speedView.setText(averageSpeed + " km/u");
+								} else {
+									speedView.setText("0.0 km/h");
+								}
+							}
+						});
+						threadFinished = true;
 					}
 				}
 			}
@@ -108,15 +132,17 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void rendering() {
 		// TODO Auto-generated method stub
-		timerView = (TextView) findViewById(R.id.textView);
-		distanceView = (TextView) findViewById(R.id.textView1);
-		y = com.c1.charityworkout.MainActivity.x;
+		timerView = (TextView) findViewById(R.id.timerView);
+		distanceView = (TextView) findViewById(R.id.distanceView);
+		amountView = (TextView) findViewById(R.id.amountView);
+		speedView = (TextView) findViewById(R.id.speedView);
+		banner = MainActivity.choice;
 		imgView = (ImageView) findViewById(R.id.imageView2);
 		bStart = (Button) findViewById(R.id.start);
 		bStart.setOnClickListener(this);
 		bStop = (Button) findViewById(R.id.stop);
 		bStop.setOnClickListener(this);
-		Drawable image2 = getResources().getDrawable(y);
+		Drawable image2 = getResources().getDrawable(banner);
 		imgView.setImageDrawable(image2);
 		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
 		main.setOnTouchListener(this);
@@ -177,9 +203,14 @@ public class Screen3 extends Activity implements OnClickListener,
 				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
 				timerView.setText(timerText + " [" + pauseMessage + "]");
 			} else {
-				pauseTime = 0;
+
 				timerView.setText(timerText + " [" + stopMessage + "]");
 				timerText = "00:00";
+				while (threadFinished != true) {
+					// wait for thread to finish before resetting values.
+				}
+				pauseTime = 0;
+				minTimer = 0;
 			}
 			break;
 		}

@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -32,9 +33,10 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 	Location myLocation, prevLocation;
 	Context myContext;
 	float[] result = new float[5];
-	float countedResult;
+	float countedResult, countedResultInKm;
+	int amountOfKm;
 	LocationManager locationManager;
-	static String totalDistance;
+	static String totalDistance, averageSpeedString;
 	static boolean gpsReady = false;
 	static boolean locTrack = false;
 
@@ -93,6 +95,8 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(
 				myLocation.getLatitude(), myLocation.getLongitude()));
 		CameraUpdate zoom = CameraUpdateFactory.zoomTo(14);
+		
+		amountOfKm = 1;
 
 		workoutMap.moveCamera(center);
 		workoutMap.animateCamera(zoom);
@@ -116,8 +120,15 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 					myLocation.getLatitude(), myLocation.getLongitude())));
 			drawTrail();
 			calcDistance();
+			averageSpeed();
 		}
 
+	}
+
+	private void averageSpeed() {
+		// TODO Auto-generated method stub
+		float averageSpeed = (countedResultInKm / Screen3.newTime) * 3600;
+		averageSpeedString = Float.toString(averageSpeed);
 	}
 
 	private void calcDistance() {
@@ -125,9 +136,17 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		Location.distanceBetween(prevLocation.getLatitude(),
 				prevLocation.getLongitude(), myLocation.getLatitude(),
 				myLocation.getLongitude(), result);
-		countedResult = countedResult + result[0];
-		totalDistance = Float.toString(countedResult / 1000);
-		Toast.makeText(myContext, totalDistance, 1000).show();
+		countedResult = (countedResult + result[0]);
+		countedResultInKm = countedResult / 1000;
+		totalDistance = Float.toString(countedResultInKm);
+		if (countedResultInKm > amountOfKm) {
+			String markKm = Integer.toString(amountOfKm);
+			workoutMap.addMarker(new MarkerOptions().position(
+					new LatLng(myLocation.getLatitude(), myLocation
+							.getLongitude())).title(markKm + " KM"));
+			amountOfKm++;
+
+		}
 	}
 
 	private void drawTrail() {
@@ -165,6 +184,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 			Toast.makeText(myContext,
 					"Location fixed. You can now start your workout.", 3000)
 					.show();
+			locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		} else if (arg0 == GpsStatus.GPS_EVENT_STARTED) {
 			Toast.makeText(myContext, "Looking for current location", 3000)
 					.show();
