@@ -29,8 +29,7 @@ public class SplashScreen extends Activity {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						} finally {
-							Intent start = new Intent(
-									"android.c1.CharityWorkout.MAINACTIVITY");
+							Intent start = new Intent(SplashScreen.this, MainActivity.class);
 							startActivity(start);
 							finish();
 						}
