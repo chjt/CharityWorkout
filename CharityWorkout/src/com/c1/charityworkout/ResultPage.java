@@ -89,8 +89,8 @@ public class ResultPage extends Activity implements OnClickListener {
 
 	private void stringstoSave() {
 		// TODO Auto-generated method stub
-		text.setText("Speed: " + speed + "Distance: " + distance + "Timer: "
-				+ timer + "Amount: " + amount);
+		text.setText("Speed: " + speed + "\r\n" + "Distance: " + distance + "\r\n" + "Timer: "
+				+ timer + "\r\n" + "Amount: " + amount);
 	}
 
 }
