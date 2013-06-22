@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class ResultPage extends Activity implements OnClickListener {
 
 	// Variables TextViews
-	TextView speedResult, amountView, distanceView, timerView, text;
+	TextView speedResult, amountResult, distanceResult, timerResult, text;
 	String speed, amount, distance, timer, stringSave;
 
 	// Variables SaveButtons
@@ -41,19 +41,19 @@ public class ResultPage extends Activity implements OnClickListener {
 		amount = gotResult.getString("amount");
 		distance = gotResult.getString("distance");
 		timer = gotResult.getString("timer");
-		speedResult.setText(speed);
-		amountView.setText(amount);
-		distanceView.setText(distance);
-		timerView.setText(timer);
+		speedResult.append(": " + speed + "\r\n");
+		amountResult.append(": " + amount + "\r\n");
+		distanceResult.append(": " + distance + "\r\n");
+		timerResult.append(": " + timer + "\r\n");
 
 	}
 
 	private void initialize() {
 		// TODO Auto-generated method stub
-		speedResult = (TextView) findViewById(R.id.speedResultView);
-		amountView = (TextView) findViewById(R.id.amountResultView);
-		distanceView = (TextView) findViewById(R.id.distanceResultView);
-		timerView = (TextView) findViewById(R.id.timerResultView);
+		speedResult = (TextView) findViewById(R.id.speedResult);
+		amountResult = (TextView) findViewById(R.id.amountResult);
+		distanceResult = (TextView) findViewById(R.id.distanceResult);
+		timerResult = (TextView) findViewById(R.id.timerResult);
 		save.setOnClickListener(this);
 		back.setOnClickListener(this);
 	}
@@ -89,8 +89,7 @@ public class ResultPage extends Activity implements OnClickListener {
 
 	private void stringstoSave() {
 		// TODO Auto-generated method stub
-		text.setText("Speed: " + speed + "\r\n" + "Distance: " + distance + "\r\n" + "Timer: "
-				+ timer + "\r\n" + "Amount: " + amount);
+		text.setText(speedResult + distance + timer + amount);
 	}
 
 }

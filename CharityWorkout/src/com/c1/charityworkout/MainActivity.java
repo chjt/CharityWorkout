@@ -68,8 +68,8 @@ public class MainActivity extends Activity {
 		history.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent next = new Intent(MainActivity.this, WorkoutHistory.class);
-				startActivity(next);
+				Intent history = new Intent(MainActivity.this, WorkoutHistory.class);
+				startActivity(history);
 			}
 		});
 	}
