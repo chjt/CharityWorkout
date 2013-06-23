@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		running = (ImageButton) findViewById(R.id.imageButton);
 		cycling = (ImageButton) findViewById(R.id.imageButton2);
+		history = (ImageButton) findViewById(R.id.imageButton3);
 
 		running.setOnClickListener(new View.OnClickListener() {
 			@Override

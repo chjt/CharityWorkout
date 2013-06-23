@@ -26,7 +26,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/homeView"
         android:layout_marginTop="15dp"
-        android:background="@drawable/running" />
+        android:background="@drawable/running_eng" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -35,7 +35,7 @@
         android:layout_below="@+id/imageButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/cycling" />
+        android:background="@drawable/cycling_eng" />
 
     <ImageButton
         android:id="@+id/imageButton3"
