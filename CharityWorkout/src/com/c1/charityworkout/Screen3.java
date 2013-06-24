@@ -31,20 +31,20 @@ public class Screen3 extends Activity implements OnClickListener,
 	int minTimer = 0;
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
-			stopMessage, timerText, totalDistance, averageSpeed, amountDonated ;
+			stopMessage, timerText, totalDistance, averageSpeed, amountDonated;
 	Thread timer;
 	static Boolean startW = false;
 	TextView timerView, distanceView, speedView, amountView;
 	Bundle data;
-	Boolean threadFinished;
+	Boolean threadFinished = true;
 
 	// Variables of banner
 	ImageView imgView;
 	private int banner;
 
-	//Variables of Result
+	// Variables of Result
 	Bundle resultSend;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		setContentView(R.layout.screen_3);
 		rendering();
 	}
-	
+
 	private void rendering() {
 		// TODO Auto-generated method stub
 		timerView = (TextView) findViewById(R.id.timerView);
@@ -149,6 +149,18 @@ public class Screen3 extends Activity implements OnClickListener,
 								}
 							}
 						});
+						amountView.post(new Runnable() {
+							public void run() {
+								int amountOfKm = Integer.parseInt(averageSpeed
+										.substring(0, averageSpeed.indexOf(".")));
+								//if hardlopen
+								int totalAmount = amountOfKm * donationPerKmRunning;
+								//if fietsen 
+								int totalAmount = amountOfKm * donationPerKmCycling;
+								
+								amountDonated = Integer.toString(totalAmount);
+							}
+						});
 						threadFinished = true;
 					}
 				}
@@ -156,8 +168,6 @@ public class Screen3 extends Activity implements OnClickListener,
 		};
 		timer.start();
 	}
-
-
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -223,14 +233,17 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void getResult() {
 		// TODO Auto-generated method stub
-		resultSend = new Bundle();
-		resultSend.putString("speed", averageSpeed);
-		resultSend.putString("distance", totalDistance);
-		resultSend.putString("timer", timerText);
-		resultSend.putString("amount", amountDonated);
-		Intent resultPage = new Intent(Screen3.this, ResultPage.class);
-		resultPage.putExtras(resultSend);
-		startActivity(resultPage);
+		if (averageSpeed != null && totalDistance != null && timerText != null
+				&& amountDonated != null) {
+			resultSend = new Bundle();
+			resultSend.putString("speed", averageSpeed);
+			resultSend.putString("distance", totalDistance);
+			resultSend.putString("timer", timerText);
+			resultSend.putString("amount", amountDonated);
+			Intent resultPage = new Intent(Screen3.this, ResultPage.class);
+			resultPage.putExtras(resultSend);
+			startActivity(resultPage);
+		}
 	}
 
 }

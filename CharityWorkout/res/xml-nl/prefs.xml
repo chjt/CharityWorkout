@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <ListPreference android:title="Valuta"
-        android:summary="Welke valuta weer te geven voor donaties"
-        android:key="prefCurr"
-        android:entries="@array/currencyEntries"
-        android:entryValues="@array/currencyValues" />
-    
-    <ListPreference android:title="Taal"
-        android:summary="Welke taal de app moet zijn"
-        android:key="prefLang"
+
+    <ListPreference
         android:entries="@array/langEntries"
-        android:entryValues="@array/langValues" />
-    
+        android:entryValues="@array/langValues"
+        android:key="prefLang"
+        android:summary="Welke taal de app moet zijn"
+        android:title="Taal" />
+    <ListPreference
+        android:entries="@array/donEntries"
+        android:entryValues="@array/donValues"
+        android:key="donRunning"
+        android:summary="Hoeveel eurocent u per km wilt doneren tijdens het hardlopen"
+        android:title="Hardloop Donatie" />
+    <ListPreference
+        android:entries="@array/donEntries"
+        android:entryValues="@array/donValues"
+        android:key="donCycling"
+        android:summary="Hoeveel eurocent u per km wilt doneren tijdens het fietsen"
+        android:title="Fiets Donatie" />
+
 </PreferenceScreen>

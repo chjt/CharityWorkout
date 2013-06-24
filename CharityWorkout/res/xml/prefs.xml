@@ -13,4 +13,10 @@
         android:entries="@array/donEntries" 
         android:entryValues="@array/donValues"/>
     
+        <ListPreference android:title="Cycling Donation"
+        android:summary="The amount of eurocents you wish to donate each kilometer"
+        android:key="donCycling" 
+        android:entries="@array/donEntries" 
+        android:entryValues="@array/donValues"/>
+    
 </PreferenceScreen>

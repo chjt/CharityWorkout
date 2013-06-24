@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="currencyEntries">
-        <item>EUR €</item>
-        <item>GPB £</item>
-        <item>USD $</item>
-    </string-array>
-    <string-array name="currencyValues">
-        <item>EUR</item>
-        <item>GBP</item>
-        <item>USD</item>
-    </string-array>
     <string-array name="langEntries">
         <item>Nederlands (NL)</item>
         <item>Engels (US)</item>
