@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <ListPreference android:title="Currency"
-        android:summary="What currency to display for donations"
-        android:key="prefCurr"
-        android:entries="@array/currencyEntries"
-        android:entryValues="@array/currencyValues" />
-    
+
     <ListPreference android:title="Language"
         android:summary="What language do you prefer"
         android:key="prefLang"
         android:entries="@array/langEntries"
         android:entryValues="@array/langValues" />
+    
+    <ListPreference android:title="Running Donation"
+        android:summary="The amount of eurocents you wish to donate each kilometer"
+        android:key="donRunning" 
+        android:entries="@array/donEntries" 
+        android:entryValues="@array/donValues"/>
     
 </PreferenceScreen>

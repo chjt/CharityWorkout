@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="currencyEntries">
-        <item>EUR €</item>
-        <item>GPB £</item>
-        <item>USD $</item>
-    </string-array>
-    <string-array name="currencyValues">
-        <item>EUR</item>
-        <item>GBP</item>
-        <item>USD</item>
-    </string-array>
     <string-array name="langEntries">
         <item>Dutch (NL)</item>
         <item>English (US)</item>
@@ -18,6 +8,20 @@
     <string-array name="langValues">
         <item>nl</item>
         <item>en</item>
+    </string-array>
+    <string-array name="donEntries">
+        <item>€0.05</item>
+        <item>€0.10</item>
+        <item>€0.25</item>
+        <item>€0.50</item>
+        <item>€1.00</item>
+    </string-array>
+        <string-array name="donValues">
+        <item>5</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
     </string-array>
 
 </resources>

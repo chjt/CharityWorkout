@@ -23,7 +23,7 @@ public class Screen3 extends Activity implements OnClickListener,
 	float startX, endX;
 	GestureOverlayView main;
 
-	// Variables for Timer
+	// Variables for Timer & Other stats
 	long currentTime = 0;
 	static long newTime = 0;
 	long pauseTime = 0;
@@ -31,10 +31,9 @@ public class Screen3 extends Activity implements OnClickListener,
 	int minTimer = 0;
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
-			stopMessage, timerText;
+			stopMessage, timerText, totalDistance, averageSpeed, amountDonated ;
 	Thread timer;
 	static Boolean startW = false;
-
 	TextView timerView, distanceView, speedView, amountView;
 	Bundle data;
 	Boolean threadFinished;
@@ -52,6 +51,30 @@ public class Screen3 extends Activity implements OnClickListener,
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.screen_3);
 		rendering();
+	}
+	
+	private void rendering() {
+		// TODO Auto-generated method stub
+		timerView = (TextView) findViewById(R.id.timerView);
+		distanceView = (TextView) findViewById(R.id.distanceView);
+		amountView = (TextView) findViewById(R.id.amountView);
+		speedView = (TextView) findViewById(R.id.speedView);
+		banner = MainActivity.choice;
+		imgView = (ImageView) findViewById(R.id.imageView2);
+		bStart = (Button) findViewById(R.id.start);
+		bStart.setOnClickListener(this);
+		bStop = (Button) findViewById(R.id.stop);
+		bStop.setOnClickListener(this);
+		Drawable image2 = getResources().getDrawable(banner);
+		imgView.setImageDrawable(image2);
+		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
+		main.setOnTouchListener(this);
+		pauseMessage = getResources().getString(R.string.pauseWorkout);
+		stopWarningMsg = getResources().getString(R.string.stopWarning);
+		stopMessage = getResources().getString(R.string.stopWorkout);
+		startX = 0;
+		endX = 0;
+		timerText = minutes + ":" + seconds;
 	}
 
 	@Override
@@ -101,7 +124,7 @@ public class Screen3 extends Activity implements OnClickListener,
 						});
 						distanceView.post(new Runnable() {
 							public void run() {
-								String totalDistance = GoogleMapFragment.totalDistance;
+								totalDistance = GoogleMapFragment.totalDistance;
 
 								if (totalDistance != null) {
 									totalDistance = totalDistance.substring(0,
@@ -115,7 +138,7 @@ public class Screen3 extends Activity implements OnClickListener,
 						});
 						speedView.post(new Runnable() {
 							public void run() {
-								String averageSpeed = GoogleMapFragment.averageSpeedString;
+								averageSpeed = GoogleMapFragment.averageSpeedString;
 
 								if (averageSpeed != null) {
 									averageSpeed = averageSpeed.substring(0,
@@ -134,30 +157,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		timer.start();
 	}
 
-	private void rendering() {
-		// TODO Auto-generated method stub
-		timerView = (TextView) findViewById(R.id.timerView);
-		distanceView = (TextView) findViewById(R.id.distanceView);
-		amountView = (TextView) findViewById(R.id.amountView);
-		speedView = (TextView) findViewById(R.id.speedView);
-		banner = MainActivity.choice;
-		imgView = (ImageView) findViewById(R.id.imageView2);
-		bStart = (Button) findViewById(R.id.start);
-		bStart.setOnClickListener(this);
-		bStop = (Button) findViewById(R.id.stop);
-		bStop.setOnClickListener(this);
-		Drawable image2 = getResources().getDrawable(banner);
-		imgView.setImageDrawable(image2);
-		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
-		main.setOnTouchListener(this);
-		pauseMessage = getResources().getString(R.string.pauseWorkout);
-		stopWarningMsg = getResources().getString(R.string.stopWarning);
-		stopMessage = getResources().getString(R.string.stopWorkout);
-		startX = 0;
-		endX = 0;
 
-		timerText = minutes + ":" + seconds;
-	}
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -223,15 +223,11 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void getResult() {
 		// TODO Auto-generated method stub
-		String speed = speedView.getText().toString();
-		String distance = distanceView.getText().toString();
-		String timer = timerView.getText().toString();
-		String amount = amountView.getText().toString();
 		resultSend = new Bundle();
-		resultSend.putString("speed", speed);
-		resultSend.putString("distance", distance);
-		resultSend.putString("timer", timer);
-		resultSend.putString("amount", amount);
+		resultSend.putString("speed", averageSpeed);
+		resultSend.putString("distance", totalDistance);
+		resultSend.putString("timer", timerText);
+		resultSend.putString("amount", amountDonated);
 		Intent resultPage = new Intent(Screen3.this, ResultPage.class);
 		resultPage.putExtras(resultSend);
 		startActivity(resultPage);
