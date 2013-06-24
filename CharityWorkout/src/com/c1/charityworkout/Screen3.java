@@ -3,9 +3,11 @@ package com.c1.charityworkout;
 import com.c1.charityworkout.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.View;
@@ -31,19 +33,20 @@ public class Screen3 extends Activity implements OnClickListener,
 	int minTimer = 0;
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
-			stopMessage, timerText, totalDistance, averageSpeed, amountDonated;
+			stopMessage, timerText, totalDistance, averageSpeed, amountDonated, choice;
 	Thread timer;
 	static Boolean startW = false;
 	TextView timerView, distanceView, speedView, amountView;
 	Bundle data;
 	Boolean threadFinished = true;
+	SharedPreferences getAmount;
 
 	// Variables of banner
 	ImageView imgView;
 	private int banner;
 
 	// Variables of Result
-	Bundle resultSend;
+	Bundle resultSend, getChoice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +58,12 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void rendering() {
 		// TODO Auto-generated method stub
+		getBundle();
+		getPreferences();
 		timerView = (TextView) findViewById(R.id.timerView);
 		distanceView = (TextView) findViewById(R.id.distanceView);
 		amountView = (TextView) findViewById(R.id.amountView);
 		speedView = (TextView) findViewById(R.id.speedView);
-		banner = MainActivity.choice;
 		imgView = (ImageView) findViewById(R.id.imageView2);
 		bStart = (Button) findViewById(R.id.start);
 		bStart.setOnClickListener(this);
@@ -75,6 +79,24 @@ public class Screen3 extends Activity implements OnClickListener,
 		startX = 0;
 		endX = 0;
 		timerText = minutes + ":" + seconds;
+	}
+
+	private void getPreferences() {
+		// TODO Auto-generated method stub
+		getAmount = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		running = getAmount.getInt("donRunning", );
+	}
+
+	private void getBundle() {
+		// TODO Auto-generated method stub
+		Bundle gotBundle = getIntent().getExtras();
+		choice = gotBundle.getString("choice");
+		if (choice.equals("Running")) {
+			banner = R.drawable.runningbanner;
+			
+		}if (choice.equals("Cycling")) {
+			banner = R.drawable.cyclingbanner;
+		}
 	}
 
 	@Override
@@ -153,7 +175,7 @@ public class Screen3 extends Activity implements OnClickListener,
 							public void run() {
 								int amountOfKm = Integer.parseInt(averageSpeed
 										.substring(0, averageSpeed.indexOf(".")));
-								//if hardlopen
+								if ()
 								int totalAmount = amountOfKm * donationPerKmRunning;
 								//if fietsen 
 								int totalAmount = amountOfKm * donationPerKmCycling;

@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener{
 
 	ImageButton running, cycling, history;
 	static int choice;
+	Bundle workoutChoice;
+	Intent next;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,30 +45,6 @@ public class MainActivity extends Activity {
 		running = (ImageButton) findViewById(R.id.imageButton);
 		cycling = (ImageButton) findViewById(R.id.imageButton2);
 		history = (ImageButton) findViewById(R.id.imageButton3);
-
-		running.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent next = new Intent(MainActivity.this, Screen2.class);
-				startActivity(next);
-				choice = (R.drawable.runningbanner);
-			}
-		});
-		cycling.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent next = new Intent(MainActivity.this, Screen2.class);
-				startActivity(next);
-				choice = (R.drawable.cyclingbanner);
-			}
-		});
-		history.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent history = new Intent(MainActivity.this, WorkoutHistory.class);
-				startActivity(history);
-			}
-		});
 	}
 
 	@Override
@@ -90,6 +69,31 @@ public class MainActivity extends Activity {
 		}
 
 		return false;
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		switch (arg0.getId()){
+		case R.id.imageButton:
+			workoutChoice = new Bundle();
+			workoutChoice.putString("choice", "Running");
+			next = new Intent(MainActivity.this, Screen3.class);
+			next.putExtras(workoutChoice);
+			startActivity(next);		
+			break;
+		case R.id.imageButton2:
+			workoutChoice = new Bundle();
+			workoutChoice.putString("choice", "Cylcing");
+			next = new Intent(MainActivity.this, Screen3.class);
+			next.putExtras(workoutChoice);
+			startActivity(next);
+			break;
+		case R.id.imageButton3:
+			Intent history = new Intent(MainActivity.this, WorkoutHistory.class);
+			startActivity(history);
+			break;
+		}
 	}
 
 }
