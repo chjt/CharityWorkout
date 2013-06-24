@@ -17,7 +17,7 @@ public class ResultPage extends Activity implements OnClickListener {
 
 	// Variables TextViews
 	TextView speedResult, amountResult, distanceResult, timerResult,
-			workoutView, text;
+			workoutView;
 	String speed, amount, distance, timer, workout, stringSave, speedText,
 			amountText, distanceText, workoutText, timerText;
 
@@ -69,7 +69,6 @@ public class ResultPage extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.save:
 			stringstoSave();
-			stringSave = text.getText().toString();
 			writeToFile(stringSave);
 			break;
 		case R.id.back:
@@ -99,8 +98,8 @@ public class ResultPage extends Activity implements OnClickListener {
 		distanceText = distanceResult.getText().toString();
 		timerText = timerResult.getText().toString();
 		amountText = amountResult.getText().toString();
-		text.setText(workoutText + speedText + distanceText + timerText
-				+ amountText);
+		stringSave = workoutText + speedText + distanceText + timerText
+				+ amountText ;
 	}
 
 }
