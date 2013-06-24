@@ -16,8 +16,10 @@ import android.widget.TextView;
 public class ResultPage extends Activity implements OnClickListener {
 
 	// Variables TextViews
-	TextView speedResult, amountResult, distanceResult, timerResult, text;
-	String speed, amount, distance, timer, stringSave;
+	TextView speedResult, amountResult, distanceResult, timerResult,
+			workoutView, text;
+	String speed, amount, distance, timer, workout, stringSave, speedText,
+			amountText, distanceText, workoutText, timerText;
 
 	// Variables SaveButtons
 	Button save, back;
@@ -37,10 +39,12 @@ public class ResultPage extends Activity implements OnClickListener {
 	protected void getBundle() {
 		// TODO Auto-generated method stub
 		Bundle gotResult = getIntent().getExtras();
+		workout = gotResult.getString("workout");
 		speed = gotResult.getString("speed");
 		amount = gotResult.getString("amount");
 		distance = gotResult.getString("distance");
 		timer = gotResult.getString("timer");
+		workoutView.setText(workout + "\r\n");
 		speedResult.append(": " + speed + "\r\n");
 		amountResult.append(": " + amount + "\r\n");
 		distanceResult.append(": " + distance + "\r\n");
@@ -50,6 +54,7 @@ public class ResultPage extends Activity implements OnClickListener {
 
 	private void initialize() {
 		// TODO Auto-generated method stub
+		workoutView = (TextView) findViewById(R.id.workout);
 		speedResult = (TextView) findViewById(R.id.speedResult);
 		amountResult = (TextView) findViewById(R.id.amountResult);
 		distanceResult = (TextView) findViewById(R.id.distanceResult);
@@ -89,7 +94,13 @@ public class ResultPage extends Activity implements OnClickListener {
 
 	private void stringstoSave() {
 		// TODO Auto-generated method stub
-		text.setText(speedResult + distance + timer + amount);
+		workoutText = workoutView.getText().toString();
+		speedText = speedResult.getText().toString();
+		distanceText = distanceResult.getText().toString();
+		timerText = timerResult.getText().toString();
+		amountText = amountResult.getText().toString();
+		text.setText(workoutText + speedText + distanceText + timerText
+				+ amountText);
 	}
 
 }

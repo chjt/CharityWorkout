@@ -32,7 +32,7 @@ public class Screen3 extends Activity implements OnClickListener,
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
 			stopMessage, timerText, totalDistance, averageSpeed, amountDonated,
-			choice;
+			choice, workout;
 	Thread timer;
 	static Boolean startW = false;
 	TextView timerView, distanceView, speedView, amountView;
@@ -97,9 +97,11 @@ public class Screen3 extends Activity implements OnClickListener,
 		choice = gotBundle.getString("choice");
 		if (choice.equals("Running")) {
 			banner = R.drawable.runningbanner;
+			workout = "Running";
 
 		} else if (choice.equals("Cycling")) {
 			banner = R.drawable.cyclingbanner;
+			workout = "Cycling";
 		}
 	}
 
@@ -258,6 +260,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		if (averageSpeed != null && totalDistance != null && timerText != null
 				&& amountDonated != null) {
 			resultSend = new Bundle();
+			resultSend.putString("workout", workout);
 			resultSend.putString("speed", averageSpeed);
 			resultSend.putString("distance", totalDistance);
 			resultSend.putString("timer", timerText);
