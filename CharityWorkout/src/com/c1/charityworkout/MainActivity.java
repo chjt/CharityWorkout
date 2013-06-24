@@ -43,8 +43,11 @@ public class MainActivity extends Activity implements OnClickListener{
 	private void initialize() {
 		// TODO Auto-generated method stub
 		running = (ImageButton) findViewById(R.id.imageButton);
+		running.setOnClickListener(this);
 		cycling = (ImageButton) findViewById(R.id.imageButton2);
+		cycling.setOnClickListener(this);
 		history = (ImageButton) findViewById(R.id.imageButton3);
+		history.setOnClickListener(this);
 	}
 
 	@Override
@@ -84,7 +87,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.imageButton2:
 			workoutChoice = new Bundle();
-			workoutChoice.putString("choice", "Cylcing");
+			workoutChoice.putString("choice", "Cycling");
 			next = new Intent(MainActivity.this, Screen3.class);
 			next.putExtras(workoutChoice);
 			startActivity(next);

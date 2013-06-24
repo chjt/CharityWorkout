@@ -26,14 +26,13 @@ public class Screen3 extends Activity implements OnClickListener,
 	GestureOverlayView main;
 
 	// Variables for Timer & Other stats
-	long currentTime = 0;
+	long currentTime = 0, pauseTime = 0, secondsCalc = 0;
 	static long newTime = 0;
-	long pauseTime = 0;
-	long secondsCalc = 0;
-	int minTimer = 0;
+	int minTimer = 0, donationPerKm;
 	Button bStart, bStop;
 	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
-			stopMessage, timerText, totalDistance, averageSpeed, amountDonated, choice;
+			stopMessage, timerText, totalDistance, averageSpeed, amountDonated,
+			choice;
 	Thread timer;
 	static Boolean startW = false;
 	TextView timerView, distanceView, speedView, amountView;
@@ -83,8 +82,13 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void getPreferences() {
 		// TODO Auto-generated method stub
-		getAmount = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		running = getAmount.getInt("donRunning", );
+		getAmount = PreferenceManager
+				.getDefaultSharedPreferences(getBaseContext());
+		if (choice.equals("Running")) {
+			donationPerKm = getAmount.getInt("donRunning", 0);
+		} else if (choice.equals("Cycling")) {
+			donationPerKm = getAmount.getInt("donCycling", 0);
+		}
 	}
 
 	private void getBundle() {
@@ -93,8 +97,8 @@ public class Screen3 extends Activity implements OnClickListener,
 		choice = gotBundle.getString("choice");
 		if (choice.equals("Running")) {
 			banner = R.drawable.runningbanner;
-			
-		}if (choice.equals("Cycling")) {
+
+		} else if (choice.equals("Cycling")) {
 			banner = R.drawable.cyclingbanner;
 		}
 	}
@@ -175,11 +179,7 @@ public class Screen3 extends Activity implements OnClickListener,
 							public void run() {
 								int amountOfKm = Integer.parseInt(averageSpeed
 										.substring(0, averageSpeed.indexOf(".")));
-								if ()
-								int totalAmount = amountOfKm * donationPerKmRunning;
-								//if fietsen 
-								int totalAmount = amountOfKm * donationPerKmCycling;
-								
+								int totalAmount = amountOfKm * donationPerKm;
 								amountDonated = Integer.toString(totalAmount);
 							}
 						});
