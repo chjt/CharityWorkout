@@ -301,7 +301,7 @@ public class Screen3 extends Activity implements OnClickListener,
 	private void writeResults() {
 		// TODO Auto-generated method stub
 		String string = workout + " - " + averageSpeed + " - " + totalDistance
-				+ " - " + timerText + " - " + amountDonated + "\n ";
+				+ " - " + timerText + " - " + amountDonated + "\r\n";
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND));
 			outputStreamWriter.write(string);
