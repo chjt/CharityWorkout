@@ -7,12 +7,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class WorkoutHistory extends Activity {
@@ -42,12 +38,12 @@ public class WorkoutHistory extends Activity {
 				BufferedReader bufferedReader = new BufferedReader(
 						inputStreamReader);
 				String receiveString = "";
-				StringBuilder stringBuiler = new StringBuilder();
+				StringBuilder stringBuilder = new StringBuilder();
 				while ((receiveString = bufferedReader.readLine()) != null) {
-					stringBuiler.append(receiveString);
+					stringBuilder.append(receiveString);
 				}
 				inputStream.close();
-				ret = stringBuiler.toString();
+				ret = stringBuilder.toString();
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -93,8 +93,8 @@ public class MainActivity extends Activity implements OnClickListener{
 			startActivity(next);
 			break;
 		case R.id.imageButton3:
-			Intent history = new Intent(MainActivity.this, WorkoutHistory.class);
-			startActivity(history);
+			Intent historyIntent = new Intent(MainActivity.this, WorkoutHistory.class);
+			startActivity(historyIntent);
 			break;
 		}
 	}
