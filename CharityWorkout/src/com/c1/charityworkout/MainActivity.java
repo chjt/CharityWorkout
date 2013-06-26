@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
 
-	ImageButton running, cycling, history;
-	static int choice;
-	Bundle workoutChoice;
-	Intent next;
+	private ImageButton running, cycling, history;
+	private static int choice;
+	private Bundle workoutChoice;
+	private Intent next;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

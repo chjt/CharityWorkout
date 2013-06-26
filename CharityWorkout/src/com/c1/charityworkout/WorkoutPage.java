@@ -26,26 +26,27 @@ public class WorkoutPage extends Activity implements OnClickListener{
 	private static final String FILENAME = "history.txt";
 
 	// Variables for Timer & Other stats
-	long currentTime = 0, pauseTime = 0, secondsCalc = 0;
-	static long newTime = 0;
-	int minTimer = 0, donationPerKm;
-	Button bStart, bStop;
-	String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
+	private long currentTime = 0, pauseTime = 0, secondsCalc = 0;
+	public static long newTime = 0;
+	private int minTimer = 0, donationPerKm;
+	private Button bStart, bStop;
+	private String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
 			stopMessage, timerText, totalDistance, averageSpeed, amountDonated,
 			choice, workout;
-	Thread timer;
-	static Boolean startW = false;
-	TextView timerView, distanceView, speedView, amountView;
-	Bundle data;
-	Boolean threadFinished = true;
-	SharedPreferences getAmount;
+	private Thread timer;
+	private static Boolean startW = false;
+	private TextView timerView, distanceView, speedView, amountView;
+	private Bundle data;
+	private Boolean threadFinished = true;
+	private SharedPreferences getAmount;
 
 	// Variables of banner
-	ImageView imgView;
+	private ImageView imgView;
 	private int banner;
+	private Drawable image2;
 
 	// Variables of Result
-	Bundle resultSend, getChoice;
+	private Bundle resultSend, getChoice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class WorkoutPage extends Activity implements OnClickListener{
 		bStart.setOnClickListener(this);
 		bStop = (Button) findViewById(R.id.stop);
 		bStop.setOnClickListener(this);
-		Drawable image2 = getResources().getDrawable(banner);
+		image2 = getResources().getDrawable(banner);
 		imgView.setImageDrawable(image2);
 		pauseMessage = getResources().getString(R.string.pauseWorkout);
 		stopWarningMsg = getResources().getString(R.string.stopWarning);

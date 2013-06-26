@@ -12,8 +12,8 @@ import android.view.Window;
 
 public class SplashScreen extends Activity {
 
-	String prefLocale;
-	Locale locale;
+	private String prefLocale;
+	private Locale locale;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
