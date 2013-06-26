@@ -27,15 +27,15 @@ import com.google.android.gms.maps.model.PolylineOptions;
 public class GoogleMapFragment extends MapFragment implements LocationListener,
 		Listener {
 
-	GoogleMap workoutMap;
-	PolylineOptions lineOptions;
-	Polyline lineRoute;
-	Location myLocation, prevLocation;
-	Context myContext;
-	float[] result = new float[5];
-	float countedResult, countedResultInKm;
-	int amountOfKm;
-	LocationManager locationManager;
+	private GoogleMap workoutMap;
+	private PolylineOptions lineOptions;
+	private Polyline lineRoute;
+	private Location myLocation, prevLocation;
+	private Context myContext;
+	private float[] result = new float[5];
+	private float countedResult, countedResultInKm;
+	private int amountOfKm;
+	private LocationManager locationManager;
 	static String totalDistance, averageSpeedString;
 	static boolean gpsReady = false;
 	static boolean locTrack = false;
