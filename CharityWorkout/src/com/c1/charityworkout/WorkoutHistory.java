@@ -13,19 +13,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class WorkoutHistory extends Activity {
-	String classes[] = { "haha", "ff proberen" };
 	String ret;
+	TextView tvHistory;
 	private static final String TAG = Screen3.class.getName();
-	private static final String FILENAME = "saveFile.txt";
+	private static final String FILENAME = "history.txt";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.history);
-		readFromFile();
+		tvHistory = (TextView) findViewById(R.id.tvHistory);
+		
+		tvHistory.setText(readFromFile());
 	}
 
 	private String readFromFile() {

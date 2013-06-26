@@ -2,8 +2,10 @@ package com.c1.charityworkout;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 import com.c1.charityworkout.R;
 import android.app.Activity;
@@ -29,6 +31,10 @@ import android.widget.Toast;
 public class Screen3 extends Activity implements OnClickListener,
 		OnTouchListener {
 
+	//Variables for Saving stats
+	private static final String FILENAME = "history.txt";
+	private static final String TAG = Screen3.class.getName();
+	
 	// Variables for Swipe Gesture
 	float startX, endX;
 	GestureOverlayView main;
@@ -199,7 +205,13 @@ public class Screen3 extends Activity implements OnClickListener,
 											* donationPerKm;
 									amountDonated = Integer
 											.toString(totalAmount);
-									amountDonated = "Û" + amountDonated.substring(0,amountDonated.length()-2) + "." + amountDonated.substring(amountDonated.length()-2);
+									amountDonated = "Û"
+											+ amountDonated.substring(0,
+													amountDonated.length() - 2)
+											+ "."
+											+ amountDonated
+													.substring(amountDonated
+															.length() - 2);
 									amountView.setText(amountDonated);
 								} else {
 									amountView.setText("Û0.00");
@@ -288,19 +300,20 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void writeResults() {
 		// TODO Auto-generated method stub
-		String TAG = Screen3.class.getName();
-		File file = new File(this.getFilesDir(), "history.txt");
+		String string = workout + " - " + averageSpeed + " - " + totalDistance
+				+ " - " + timerText + " - " + amountDonated + "\n ";
 		try {
-			file.createNewFile();
-			FileWriter filewriter = new FileWriter(file, true);
-			BufferedWriter out = new BufferedWriter(filewriter);
-			out.write(workout + " - " + averageSpeed + " - " + totalDistance
-					+ " - " + timerText + " - " + amountDonated + "\n ");
-			out.close();
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND));
+			outputStreamWriter.write(string);
+			outputStreamWriter.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			Log.e(TAG, e.toString());
+			e.printStackTrace();
 		}
+
 	}
 
 }
