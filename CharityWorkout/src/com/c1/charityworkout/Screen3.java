@@ -1,12 +1,19 @@
 package com.c1.charityworkout;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import com.c1.charityworkout.R;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -179,14 +186,16 @@ public class Screen3 extends Activity implements OnClickListener,
 						});
 						amountView.post(new Runnable() {
 							public void run() {
-								
+
 								if (averageSpeed != null) {
-									
-							
-								int amountOfKm = Integer.parseInt(averageSpeed
-										.substring(0, averageSpeed.indexOf(".")));
-								int totalAmount = amountOfKm * donationPerKm;
-								amountDonated = Integer.toString(totalAmount);
+
+									int amountOfKm = Integer
+											.parseInt(averageSpeed.substring(0,
+													averageSpeed.indexOf(".")));
+									int totalAmount = amountOfKm
+											* donationPerKm;
+									amountDonated = Integer
+											.toString(totalAmount);
 								}
 							}
 						});
@@ -264,15 +273,24 @@ public class Screen3 extends Activity implements OnClickListener,
 		// TODO Auto-generated method stub
 		if (averageSpeed != null && totalDistance != null && timerText != null
 				&& amountDonated != null) {
-			resultSend = new Bundle();
-			resultSend.putString("workout", workout);
-			resultSend.putString("speed", averageSpeed);
-			resultSend.putString("distance", totalDistance);
-			resultSend.putString("timer", timerText);
-			resultSend.putString("amount", amountDonated);
-			Intent resultPage = new Intent(Screen3.this, ResultPage.class);
-			resultPage.putExtras(resultSend);
+			writeResults();
+			Intent resultPage = new Intent(Screen3.this, WorkoutHistory.class);
 			startActivity(resultPage);
+		}
+	}
+
+	private void writeResults() {
+		// TODO Auto-generated method stub
+		File file = new File(getFilesDir(), "history.txt");
+		try {
+			FileWriter filewriter = new FileWriter(file, true);
+			BufferedWriter out = new BufferedWriter(filewriter);
+			out.write(workout + " - " + averageSpeed + " - " + totalDistance
+					+ " - " + timerText + " - " + amountDonated);
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
