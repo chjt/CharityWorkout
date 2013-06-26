@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.View;
@@ -91,11 +92,13 @@ public class Screen3 extends Activity implements OnClickListener,
 		// TODO Auto-generated method stub
 		getAmount = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
+		String donationPerKmString = null;
 		if (choice.equals("Running")) {
-			donationPerKm = getAmount.getInt("donRunning", 0);
+			donationPerKmString = getAmount.getString("donRunning", "5");
 		} else if (choice.equals("Cycling")) {
-			donationPerKm = getAmount.getInt("donCycling", 0);
+			donationPerKmString = getAmount.getString("donCycling", "5");
 		}
+		donationPerKm = Integer.parseInt(donationPerKmString);
 	}
 
 	private void getBundle() {
@@ -196,6 +199,10 @@ public class Screen3 extends Activity implements OnClickListener,
 											* donationPerKm;
 									amountDonated = Integer
 											.toString(totalAmount);
+									amountDonated = "Û" + amountDonated.substring(0,amountDonated.length()-2) + "." + amountDonated.substring(amountDonated.length()-2);
+									amountView.setText(amountDonated);
+								} else {
+									amountView.setText("Û0.00");
 								}
 							}
 						});
@@ -281,16 +288,18 @@ public class Screen3 extends Activity implements OnClickListener,
 
 	private void writeResults() {
 		// TODO Auto-generated method stub
-		File file = new File(getFilesDir(), "history.txt");
+		String TAG = Screen3.class.getName();
+		File file = new File(this.getFilesDir(), "history.txt");
 		try {
+			file.createNewFile();
 			FileWriter filewriter = new FileWriter(file, true);
 			BufferedWriter out = new BufferedWriter(filewriter);
 			out.write(workout + " - " + averageSpeed + " - " + totalDistance
-					+ " - " + timerText + " - " + amountDonated);
+					+ " - " + timerText + " - " + amountDonated + "\n ");
 			out.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, e.toString());
 		}
 	}
 

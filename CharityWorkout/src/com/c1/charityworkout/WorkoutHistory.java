@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class WorkoutHistory extends ListActivity {
+public class WorkoutHistory extends Activity {
 	String classes[] = { "haha", "ff proberen" };
 	String ret;
 	private static final String TAG = Screen3.class.getName();
@@ -25,16 +26,6 @@ public class WorkoutHistory extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.history);
 		readFromFile();
-		setListAdapter(new ArrayAdapter<String>(WorkoutHistory.this,
-				android.R.layout.simple_list_item_1, classes));
-	}
-
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
-		super.onListItemClick(l, v, position, id);
-		String Workout = classes[position];
-
 	}
 
 	private String readFromFile() {
