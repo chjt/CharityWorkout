@@ -15,7 +15,6 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements OnClickListener{
 
 	private ImageButton running, cycling, history;
-	private static int choice;
 	private Bundle workoutChoice;
 	private Intent next;
 

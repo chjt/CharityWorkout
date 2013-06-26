@@ -3,8 +3,6 @@ package com.c1.charityworkout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-
-import com.c1.charityworkout.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +34,6 @@ public class WorkoutPage extends Activity implements OnClickListener{
 	private Thread timer;
 	private static Boolean startW = false;
 	private TextView timerView, distanceView, speedView, amountView;
-	private Bundle data;
 	private Boolean threadFinished = true;
 	private SharedPreferences getAmount;
 
@@ -44,9 +41,6 @@ public class WorkoutPage extends Activity implements OnClickListener{
 	private ImageView imgView;
 	private int banner;
 	private Drawable image2;
-
-	// Variables of Result
-	private Bundle resultSend, getChoice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
