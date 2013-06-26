@@ -1,6 +1,7 @@
 package com.c1.charityworkout;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,13 +10,17 @@ import java.io.InputStreamReader;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class WorkoutHistory extends Activity {
+public class WorkoutHistory extends Activity implements OnClickListener {
 	private String ret;
 	private TextView tvHistory;
 	private static final String TAG = WorkoutPage.class.getName();
 	private static final String FILENAME = "history.txt";
+	private Button donate, delete;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,16 @@ public class WorkoutHistory extends Activity {
 		setContentView(R.layout.history);
 		tvHistory = (TextView) findViewById(R.id.tvHistory);
 		tvHistory.setSingleLine(false);
-		
+		initialize();
 		tvHistory.setText(readFromFile());
+	}
+
+	private void initialize() {
+		// TODO Auto-generated method stub
+		donate = (Button) findViewById(R.id.donate);
+		delete = (Button) findViewById(R.id.delete);
+		donate.setOnClickListener(this);
+		delete.setOnClickListener(this);
 	}
 
 	private String readFromFile() {
@@ -55,4 +68,16 @@ public class WorkoutHistory extends Activity {
 		return ret;
 	}
 
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.donate:
+			break;
+		case R.id.delete:
+			File file = new File(getFilesDir(), "history.txt");
+			file.delete();
+			break;
+		}
+	}
 }
