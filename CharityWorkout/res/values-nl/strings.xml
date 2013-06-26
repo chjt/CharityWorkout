@@ -7,10 +7,12 @@
 
     <!-- Menu Item Strings -->
     <string name="action_settings">Instellingen</string>
+    <string name="about_us">Over ons</string>
     <string name="exit_app">Afsluiten</string>
 
     <!-- Mainmenu Strings -->
     <string name="homeText">Selecteer je activiteit</string>
+    <string name="aboutUsText">Gemaakt door C1 van de Hogeschool Rotterdam. Copyright 2013</string>
 
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUZE</string>

@@ -1,18 +1,15 @@
 package com.c1.charityworkout;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 
-public class Prefs extends PreferenceActivity {
+public class AboutUs extends Activity{
 
-	@SuppressWarnings("deprecation")
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.prefs);
+		setContentView(R.layout.aboutus);
 	}
 
-	
 }

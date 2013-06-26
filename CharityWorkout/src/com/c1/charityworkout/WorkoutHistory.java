@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class WorkoutHistory extends Activity {
 	String ret;
 	TextView tvHistory;
-	private static final String TAG = Screen3.class.getName();
+	private static final String TAG = WorkoutPage.class.getName();
 	private static final String FILENAME = "history.txt";
 
 	@Override

@@ -1,9 +1,6 @@
 package com.c1.charityworkout;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
@@ -12,32 +9,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.gesture.GestureOverlayView;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.Window;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Screen3 extends Activity implements OnClickListener,
-		OnTouchListener {
+public class WorkoutPage extends Activity implements OnClickListener{
 
 	//Variables for Saving stats
 	private static final String FILENAME = "history.txt";
-	private static final String TAG = Screen3.class.getName();
-	
-	// Variables for Swipe Gesture
-	float startX, endX;
-	GestureOverlayView main;
 
 	// Variables for Timer & Other stats
 	long currentTime = 0, pauseTime = 0, secondsCalc = 0;
@@ -84,13 +70,9 @@ public class Screen3 extends Activity implements OnClickListener,
 		bStop.setOnClickListener(this);
 		Drawable image2 = getResources().getDrawable(banner);
 		imgView.setImageDrawable(image2);
-		main = (GestureOverlayView) findViewById(R.id.gestureOverlayView1);
-		main.setOnTouchListener(this);
 		pauseMessage = getResources().getString(R.string.pauseWorkout);
 		stopWarningMsg = getResources().getString(R.string.stopWarning);
 		stopMessage = getResources().getString(R.string.stopWorkout);
-		startX = 0;
-		endX = 0;
 		timerText = minutes + ":" + seconds;
 	}
 
@@ -227,28 +209,6 @@ public class Screen3 extends Activity implements OnClickListener,
 	}
 
 	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		// TODO Auto-generated method stub
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			startX = event.getX();
-			break;
-		case MotionEvent.ACTION_UP:
-			endX = event.getX();
-		}
-
-		if (startX != 0 && endX != 0) {
-			if (endX - startX > 120) {
-
-			}
-			if (endX - startX < -120) {
-
-			}
-		}
-		return true;
-	}
-
-	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
@@ -271,7 +231,7 @@ public class Screen3 extends Activity implements OnClickListener,
 				startW = false;
 				GoogleMapFragment.locTrack = false;
 				pauseTime = newTime;
-				Toast.makeText(Screen3.this, stopWarningMsg, 2000).show();
+				Toast.makeText(WorkoutPage.this, stopWarningMsg, 2000).show();
 				timerView.setText(timerText + " [" + pauseMessage + "]");
 			} else {
 
@@ -293,7 +253,7 @@ public class Screen3 extends Activity implements OnClickListener,
 		if (averageSpeed != null && totalDistance != null && timerText != null
 				&& amountDonated != null) {
 			writeResults();
-			Intent resultPage = new Intent(Screen3.this, WorkoutHistory.class);
+			Intent resultPage = new Intent(WorkoutPage.this, WorkoutHistory.class);
 			startActivity(resultPage);
 			finish();
 		}

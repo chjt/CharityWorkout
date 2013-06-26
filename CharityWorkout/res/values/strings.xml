@@ -7,11 +7,13 @@
 
     <!-- Menu Item Strings -->
     <string name="action_settings">Settings</string>
+    <string name="about_us">About Us</string>
     <string name="exit_app">Exit</string>
 
     <!-- Mainmenu Strings -->
     <string name="homeText">Please select your workout</string>
-
+    <string name="aboutUsText">Made by C1 of University of Rotterdam. Copyright 2013</string>
+    
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is currently enabled</string>
     <string name="gpsDis">GPS is currently disabled</string>

@@ -65,6 +65,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			Intent p = new Intent(MainActivity.this, Prefs.class);
 			startActivity(p);
 			break;
+		case R.id.about_us:
+			Intent aboutUs = new Intent(MainActivity.this, AboutUs.class);
+			startActivity (aboutUs);
+			break;
 		case R.id.exit_app:
 			finish();
 			break;
@@ -81,14 +85,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		case R.id.imageButton:
 			workoutChoice = new Bundle();
 			workoutChoice.putString("choice", "Running");
-			next = new Intent(MainActivity.this, Screen3.class);
+			next = new Intent(MainActivity.this, WorkoutPage.class);
 			next.putExtras(workoutChoice);
 			startActivity(next);		
 			break;
 		case R.id.imageButton2:
 			workoutChoice = new Bundle();
 			workoutChoice.putString("choice", "Cycling");
-			next = new Intent(MainActivity.this, Screen3.class);
+			next = new Intent(MainActivity.this, WorkoutPage.class);
 			next.putExtras(workoutChoice);
 			startActivity(next);
 			break;

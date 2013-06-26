@@ -66,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.c1.charityworkout.Screen3"
+            android:name="com.c1.charityworkout.WorkoutPage"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -94,6 +94,12 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.c1.charityworkout.AboutUs"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" 
+            android:theme="@android:style/Theme.Dialog">
         </activity>
     </application>
 

@@ -127,7 +127,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 
 	private void averageSpeed() {
 		// TODO Auto-generated method stub
-		float averageSpeed = (countedResultInKm / Screen3.newTime) * 3600;
+		float averageSpeed = (countedResultInKm / WorkoutPage.newTime) * 3600;
 		averageSpeedString = Float.toString(averageSpeed);
 	}
 
