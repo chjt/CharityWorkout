@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
@@ -21,7 +21,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="" />
-
         </LinearLayout>
     </ScrollView>
 
@@ -32,31 +31,27 @@
         android:weightSum="1" >
 
         <Button
-                    android:id="@+id/donate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".5"
-                    android:background="#00ff00"
-                    android:focusableInTouchMode="true"
-                    android:minHeight="48dp"
-                    android:minWidth="64dp"
-                    android:text="@string/donation" />
+            android:id="@+id/donate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            android:background="#00ff00"
+            android:text="@string/donation" />
 
-                <Button
-                    android:id="@+id/delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".5"
-                    android:background="#ff0000"
-                    android:text="@string/delete"
-                    android:textColor="#ffffff" />
-
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            android:background="#ff0000"
+            android:text="@string/delete"
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 </LinearLayout>
