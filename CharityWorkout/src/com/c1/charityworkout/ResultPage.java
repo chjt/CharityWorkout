@@ -69,7 +69,7 @@ public class ResultPage extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.save:
 			stringstoSave();
-			writeToFile(stringSave);
+			writeToFile();
 			break;
 		case R.id.back:
 			Intent back = new Intent(ResultPage.this, Screen3.class);
@@ -78,7 +78,7 @@ public class ResultPage extends Activity implements OnClickListener {
 		}
 	}
 
-	private void writeToFile(String stringSave2) {
+	private void writeToFile() {
 		// TODO Auto-generated method stub
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
