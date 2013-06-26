@@ -295,6 +295,7 @@ public class Screen3 extends Activity implements OnClickListener,
 			writeResults();
 			Intent resultPage = new Intent(Screen3.this, WorkoutHistory.class);
 			startActivity(resultPage);
+			finish();
 		}
 	}
 

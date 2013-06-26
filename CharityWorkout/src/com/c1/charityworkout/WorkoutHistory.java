@@ -23,6 +23,7 @@ public class WorkoutHistory extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.history);
 		tvHistory = (TextView) findViewById(R.id.tvHistory);
+		tvHistory.setSingleLine(false);
 		
 		tvHistory.setText(readFromFile());
 	}
@@ -40,7 +41,7 @@ public class WorkoutHistory extends Activity {
 				String receiveString = "";
 				StringBuilder stringBuilder = new StringBuilder();
 				while ((receiveString = bufferedReader.readLine()) != null) {
-					stringBuilder.append(receiveString);
+					stringBuilder.append(receiveString + "\n");
 				}
 				inputStream.close();
 				ret = stringBuilder.toString();
