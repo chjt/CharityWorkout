@@ -3,7 +3,7 @@
 
     <!-- Global Application Strings -->
     <string name="app_name">Charity Workout</string>
-    <string name="splash">Loading...</string>
+    <string name="splash">Loading....</string>
 
     <!-- Menu Item Strings -->
     <string name="action_settings">Settings</string>
