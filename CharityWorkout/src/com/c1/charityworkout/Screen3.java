@@ -179,10 +179,15 @@ public class Screen3 extends Activity implements OnClickListener,
 						});
 						amountView.post(new Runnable() {
 							public void run() {
+								
+								if (averageSpeed != null) {
+									
+							
 								int amountOfKm = Integer.parseInt(averageSpeed
 										.substring(0, averageSpeed.indexOf(".")));
 								int totalAmount = amountOfKm * donationPerKm;
 								amountDonated = Integer.toString(totalAmount);
+								}
 							}
 						});
 						threadFinished = true;
