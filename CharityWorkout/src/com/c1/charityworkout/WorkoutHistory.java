@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -79,6 +80,8 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.donate:
+			Intent donate = new Intent(WorkoutHistory.this, ThankYou.class);
+			startActivity(donate);
 			break;
 		case R.id.delete:
 			File file = new File(getFilesDir(), "history.txt");

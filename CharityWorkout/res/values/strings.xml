@@ -42,5 +42,6 @@
     <string name="donation">Donate</string>
     <string name="delete">Delete</string>
     <string name="nohistory">No workout history found.</string>
+    <string name="thanks">Thanks for doing workout with us, please remind yourself to donate amount of money to the charity of your own choice</string>
 
 </resources>

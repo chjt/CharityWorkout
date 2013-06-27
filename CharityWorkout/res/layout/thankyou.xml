@@ -8,13 +8,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="THANK YOU FOR YOUR DONATION! KEEP DOING YOUR WORKOUT!"
+            android:text="@string/thanks"
             android:id="@+id/timerView" android:layout_gravity="center"
             android:layout_marginTop="150dp" android:gravity="center_horizontal" android:focusableInTouchMode="true"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Done"
-            android:id="@+id/Done" android:layout_gravity="center" android:layout_marginTop="100dp"
-            android:textSize="20dp"/>
+
 </LinearLayout>
