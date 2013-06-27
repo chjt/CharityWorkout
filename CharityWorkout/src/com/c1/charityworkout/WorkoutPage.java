@@ -35,7 +35,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 	private Thread timer;
 	private static Boolean startW = false;
 	private TextView timerView, distanceView, speedView, amountView;
-	private Boolean threadFinished = true;
+	private Boolean threadFinished = true, freeMode;
 	private SharedPreferences getAmount;
 
 	// Variables of banner
@@ -83,6 +83,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 			donationPerKmString = getAmount.getString("donCycling", "5");
 		}
 		donationPerKm = Float.parseFloat(donationPerKmString);
+		freeMode = getAmount.getBoolean("freeMode", true);
 	}
 
 	private void getBundle() {
@@ -173,21 +174,30 @@ public class WorkoutPage extends Activity implements OnClickListener {
 						});
 						amountView.post(new Runnable() {
 							public void run() {
+								if (freeMode = false) {
+									if (averageSpeed != null) {
 
-								if (averageSpeed != null) {
-
-									int amountOfKm = Integer
-											.parseInt(totalDistance.substring(0,
-													totalDistance.indexOf(".")));
-									float totalAmount = amountOfKm
-											* donationPerKm;
-									amountDonated = Float.toString(totalAmount);
-									amountDonated = "Û"
-											+ amountDonated.substring(0,
-													amountDonated.indexOf(".") + 2);
-									amountView.setText(amountDonated);
+										int amountOfKm = Integer.parseInt(totalDistance
+												.substring(0, totalDistance
+														.indexOf(".")));
+										float totalAmount = amountOfKm
+												* donationPerKm;
+										amountDonated = Float
+												.toString(totalAmount);
+										amountDonated = "Û"
+												+ amountDonated
+														.substring(
+																0,
+																amountDonated
+																		.indexOf(".") + 2);
+										amountView.setText(amountDonated);
+									} else {
+										amountDonated = "Û0.00";
+										amountView.setText(amountDonated);
+									}
 								} else {
-									amountView.setText("Û0.00");
+										amountDonated = "FREE MODE";
+										amountView.setText(amountDonated);
 								}
 							}
 						});
@@ -227,7 +237,6 @@ public class WorkoutPage extends Activity implements OnClickListener {
 			} else {
 
 				timerView.setText(timerText + " [" + stopMessage + "]");
-				timerText = "00:00";
 				while (threadFinished != true) {
 					// wait for thread to finish before resetting values.
 				}

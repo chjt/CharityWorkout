@@ -6,18 +6,27 @@
         android:entryValues="@array/langValues"
         android:key="prefLang"
         android:summary="Welke taal de app moet zijn"
-        android:title="Taal" />
+        android:title="Taal"
+        android:defaultValue="en" />
     <ListPreference
         android:entries="@array/donEntries"
         android:entryValues="@array/donValues"
         android:key="donRunning"
         android:summary="Hoeveel eurocent u per km wilt doneren tijdens het hardlopen"
-        android:title="Hardloop Donatie" />
+        android:title="Hardloop Donatie" 
+        android:defaultValue="0.05" />
     <ListPreference
         android:entries="@array/donEntries"
         android:entryValues="@array/donValues"
         android:key="donCycling"
         android:summary="Hoeveel eurocent u per km wilt doneren tijdens het fietsen"
-        android:title="Fiets Donatie" />
+        android:title="Fiets Donatie"
+        android:defaultValue="0.05" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="freeMode"
+        android:summary="Schakel deze optie in om geen geld te doneren tijdens je workout"
+        android:title="Gratis Modus" />
 
 </PreferenceScreen>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <ListPreference android:title="Language"
-        android:summary="What language do you prefer"
-        android:key="prefLang"
+    <ListPreference
         android:entries="@array/langEntries"
-        android:entryValues="@array/langValues" />
-    
-    <ListPreference android:title="Running Donation"
+        android:entryValues="@array/langValues"
+        android:key="prefLang"
+        android:summary="What language do you prefer"
+        android:title="Language"
+        android:defaultValue="en" />
+    <ListPreference
+        android:entries="@array/donEntries"
+        android:entryValues="@array/donValues"
+        android:key="donRunning"
         android:summary="The amount of eurocents you wish to donate each kilometer"
-        android:key="donRunning" 
-        android:entries="@array/donEntries" 
-        android:entryValues="@array/donValues"/>
-    
-        <ListPreference android:title="Cycling Donation"
+        android:title="Running Donation"
+		android:defaultValue="0.05" />
+    <ListPreference
+        android:entries="@array/donEntries"
+        android:entryValues="@array/donValues"
+        android:key="donCycling"
         android:summary="The amount of eurocents you wish to donate each kilometer"
-        android:key="donCycling" 
-        android:entries="@array/donEntries" 
-        android:entryValues="@array/donValues"/>
+        android:title="Cycling Donation"
+        android:defaultValue="0.05" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="freeMode"
+        android:title="Free Mode"
+        android:summary="Enable this to workout without donating money for charity." />
     
 </PreferenceScreen>
