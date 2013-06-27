@@ -39,6 +39,7 @@
 
     <!-- History strings -->
     <string name="arrangement">Workout \t speed \t distance \t time \t amount</string>
+    <string name="historyPage">History</string>
     <string name="donation">Donate</string>
     <string name="delete">Delete</string>
     <string name="nohistory">No workout history found.</string>
