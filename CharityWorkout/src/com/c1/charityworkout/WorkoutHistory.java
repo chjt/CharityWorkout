@@ -21,6 +21,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 	private static final String TAG = WorkoutPage.class.getName();
 	private static final String FILENAME = "history.txt";
 	private Button donate, delete;
+	private int amountOfWorkouts;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		tvHistory.setSingleLine(false);
 		initialize();
 		tvHistory.setText(readFromFile());
+		if (amountOfWorkouts==0) {
+			tvHistory.setText("No workout history found.");
+		}
 	}
 
 	private void initialize() {
@@ -39,6 +43,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		delete = (Button) findViewById(R.id.delete);
 		donate.setOnClickListener(this);
 		delete.setOnClickListener(this);
+		amountOfWorkouts=0;
 	}
 
 	private String readFromFile() {
@@ -55,6 +60,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 				StringBuilder stringBuilder = new StringBuilder();
 				while ((receiveString = bufferedReader.readLine()) != null) {
 					stringBuilder.append(receiveString + "\n");
+					amountOfWorkouts++;
 				}
 				inputStream.close();
 				ret = stringBuilder.toString();
@@ -77,6 +83,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		case R.id.delete:
 			File file = new File(getFilesDir(), "history.txt");
 			file.delete();
+			finish();
 			break;
 		}
 	}

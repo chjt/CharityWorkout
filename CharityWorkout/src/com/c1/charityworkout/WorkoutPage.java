@@ -18,19 +18,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WorkoutPage extends Activity implements OnClickListener{
+public class WorkoutPage extends Activity implements OnClickListener {
 
-	//Variables for Saving stats
+	// Variables for Saving stats
 	private static final String FILENAME = "history.txt";
 
 	// Variables for Timer & Other stats
 	private long currentTime = 0, pauseTime = 0, secondsCalc = 0;
 	public static long newTime = 0;
-	private int minTimer = 0, donationPerKm;
+	private int minTimer = 0;
+	private float donationPerKm;
 	private Button bStart, bStop;
-	private String seconds = "00", minutes = "00", pauseMessage, stopWarningMsg,
-			stopMessage, timerText, totalDistance, averageSpeed, amountDonated,
-			choice, workout;
+	private String seconds = "00", minutes = "00", pauseMessage,
+			stopWarningMsg, stopMessage, timerText, totalDistance,
+			averageSpeed, amountDonated, choice, workout;
 	private Thread timer;
 	private static Boolean startW = false;
 	private TextView timerView, distanceView, speedView, amountView;
@@ -81,7 +82,7 @@ public class WorkoutPage extends Activity implements OnClickListener{
 		} else if (choice.equals("Cycling")) {
 			donationPerKmString = getAmount.getString("donCycling", "5");
 		}
-		donationPerKm = Integer.parseInt(donationPerKmString);
+		donationPerKm = Float.parseFloat(donationPerKmString);
 	}
 
 	private void getBundle() {
@@ -176,19 +177,14 @@ public class WorkoutPage extends Activity implements OnClickListener{
 								if (averageSpeed != null) {
 
 									int amountOfKm = Integer
-											.parseInt(averageSpeed.substring(0,
-													averageSpeed.indexOf(".")));
-									int totalAmount = amountOfKm
+											.parseInt(totalDistance.substring(0,
+													totalDistance.indexOf(".")));
+									float totalAmount = amountOfKm
 											* donationPerKm;
-									amountDonated = Integer
-											.toString(totalAmount);
+									amountDonated = Float.toString(totalAmount);
 									amountDonated = "Û"
 											+ amountDonated.substring(0,
-													amountDonated.length() - 2)
-											+ "."
-											+ amountDonated
-													.substring(amountDonated
-															.length() - 2);
+													amountDonated.indexOf(".") + 2);
 									amountView.setText(amountDonated);
 								} else {
 									amountView.setText("Û0.00");
@@ -248,7 +244,8 @@ public class WorkoutPage extends Activity implements OnClickListener{
 		if (averageSpeed != null && totalDistance != null && timerText != null
 				&& amountDonated != null) {
 			writeResults();
-			Intent resultPage = new Intent(WorkoutPage.this, WorkoutHistory.class);
+			Intent resultPage = new Intent(WorkoutPage.this,
+					WorkoutHistory.class);
 			startActivity(resultPage);
 			finish();
 		}
@@ -259,7 +256,8 @@ public class WorkoutPage extends Activity implements OnClickListener{
 		String string = workout + " - " + averageSpeed + " - " + totalDistance
 				+ " - " + timerText + " - " + amountDonated + "\r\n";
 		try {
-			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND));
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					openFileOutput(FILENAME, Context.MODE_APPEND));
 			outputStreamWriter.write(string);
 			outputStreamWriter.close();
 		} catch (FileNotFoundException e) {

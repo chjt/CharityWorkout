@@ -17,11 +17,11 @@
         <item>€1.00</item>
     </string-array>
         <string-array name="donValues">
-        <item>5</item>
-        <item>10</item>
-        <item>25</item>
-        <item>50</item>
-        <item>100</item>
+        <item>0.05</item>
+        <item>0.10</item>
+        <item>0.25</item>
+        <item>0.50</item>
+        <item>1.00</item>
     </string-array>
 
 </resources>

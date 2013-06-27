@@ -3,7 +3,7 @@
 
     <!-- Global Application Strings -->
     <string name="app_name">Charity Workout</string>
-    <string name="splash">Laden....</string>
+    <string name="splash">Laden...</string>
 
     <!-- Menu Item Strings -->
     <string name="action_settings">Instellingen</string>
@@ -29,7 +29,7 @@
     
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is ingeschakeld</string>
-    <string name="gpsDis">GPS is uitegschakeld</string>
+    <string name="gpsDis">GPS is uitgeschakeld</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="amountText">Stel uw gewenste bedrag per kilometer in</string>
