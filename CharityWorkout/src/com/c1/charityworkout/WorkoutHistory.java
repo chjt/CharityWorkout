@@ -22,6 +22,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 	private static final String FILENAME = "history.txt";
 	private Button donate, delete;
 	private int amountOfWorkouts;
+	private String noHistory;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		initialize();
 		tvHistory.setText(readFromFile());
 		if (amountOfWorkouts==0) {
-			tvHistory.setText("No workout history found.");
+			tvHistory.setText(noHistory);
 		}
 	}
 
@@ -44,6 +45,7 @@ public class WorkoutHistory extends Activity implements OnClickListener {
 		donate.setOnClickListener(this);
 		delete.setOnClickListener(this);
 		amountOfWorkouts=0;
+		noHistory = getResources().getString(R.string.nohistory);
 	}
 
 	private String readFromFile() {
