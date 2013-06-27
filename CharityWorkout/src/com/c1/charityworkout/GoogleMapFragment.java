@@ -32,6 +32,7 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 	private Polyline lineRoute;
 	private Location myLocation, prevLocation;
 	private Context myContext;
+	private String lfLocation, locFixed, locationStopped;
 	private float[] result = new float[5];
 	private float countedResult, countedResultInKm;
 	private int amountOfKm;
@@ -53,12 +54,21 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
 		myContext = getActivity();
+		initializeStrings();
 		initializeMap();
 		initializeDraw();
 		initializeLocation();
 		if (myLocation != null) {
 			setInitialLocation();
 		}
+	}
+
+	private void initializeStrings() {
+		// TODO Auto-generated method stub
+		lfLocation = getResources().getString(R.string.setLocation);
+		locFixed = getResources().getString(R.string.location);
+		locationStopped = getResources().getString(R.string.gps);
+		
 	}
 
 	private void initializeLocation() {
@@ -181,15 +191,14 @@ public class GoogleMapFragment extends MapFragment implements LocationListener,
 		// TODO Auto-generated method stub
 		if (arg0 == GpsStatus.GPS_EVENT_FIRST_FIX) {
 			gpsReady = true;
-			Toast.makeText(myContext,
-					"Location fixed. You can now start your workout.", 3000)
+			Toast.makeText(myContext, locFixed, 3000)
 					.show();
 			locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		} else if (arg0 == GpsStatus.GPS_EVENT_STARTED) {
-			Toast.makeText(myContext, "Looking for current location", 3000)
+			Toast.makeText(myContext, lfLocation, 3000)
 					.show();
 		} else if (arg0 == GpsStatus.GPS_EVENT_STOPPED) {
-			Toast.makeText(myContext, "Please re-enable your gps.", 3000)
+			Toast.makeText(myContext, locationStopped, 3000)
 					.show();
 			gpsReady = false;
 		}

@@ -15,13 +15,10 @@
     <string name="aboutUsText">Made by C1 of University of Rotterdam. Copyright 2013</string>
     
     <!-- Location Listener Strings -->
-    <string name="gpsEna">GPS is currently enabled</string>
-    <string name="gpsDis">GPS is currently disabled</string>
     <string name="location">Location fixed. You can now start your workout.</string>
     <string name="setLocation">Looking for current location.</string>
     <string name="gps">Please re-enable your gps.</string>
     <string name="invalidplay">INVALID PLAY SERVICES</string>
-    <string name="validplay">VALID PLAY SERVICES</string>
 
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUSED</string>

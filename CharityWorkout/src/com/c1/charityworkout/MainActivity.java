@@ -17,6 +17,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private ImageButton running, cycling, history;
 	private Bundle workoutChoice;
 	private Intent next;
+	private String invalidServices;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		int resultCode = GooglePlayServicesUtil
 				.isGooglePlayServicesAvailable(this);
 		if (resultCode != ConnectionResult.SUCCESS) {
-			Toast.makeText(this, "INVALID PLAY SERVICES", 2000).show();
-		} else {
-			Toast.makeText(this, "VALID PLAY SERVICES", 2000).show();
+			Toast.makeText(this, invalidServices, 2000).show();
 		}
 
 	}
@@ -47,6 +46,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		cycling.setOnClickListener(this);
 		history = (ImageButton) findViewById(R.id.imageButton3);
 		history.setOnClickListener(this);
+		invalidServices = getResources().getString(R.string.invalidplay);
 	}
 
 	@Override

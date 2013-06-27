@@ -24,13 +24,10 @@
     <string name="distance">0 km</string>
 
     <!-- Location Listener Strings -->
-    <string name="gpsEna">GPS is ingeschakeld</string>
-    <string name="gpsDis">GPS is uitgeschakeld</string>
     <string name="location">Locatie gevonden. U kunt nu starten met uw workout.</string>
     <string name="setLocation">Bezig met zoeken van uw huidige locatie.</string>
     <string name="gps">Zet uw gps aan.</string>
     <string name="invalidplay">ONGELDIGE PLAY SERVICES</string>
-    <string name="validplay">GELDIGE PLAY SERVICES</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="amountText">Stel uw gewenste bedrag per kilometer in</string>
