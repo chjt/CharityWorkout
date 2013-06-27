@@ -22,10 +22,5 @@
         android:summary="The amount of eurocents you wish to donate each kilometer"
         android:title="Cycling Donation"
         android:defaultValue="0.05" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="freeMode"
-        android:title="Free Mode"
-        android:summary="Enable this to workout without donating money for charity." />
     
 </PreferenceScreen>

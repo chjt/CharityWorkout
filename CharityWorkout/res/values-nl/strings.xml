@@ -3,7 +3,7 @@
 
     <!-- Global Application Strings -->
     <string name="app_name">Charity Workout</string>
-    <string name="splash">Laden...</string>
+    <string name="splash">Laden....</string>
 
     <!-- Menu Item Strings -->
     <string name="action_settings">Instellingen</string>
@@ -12,24 +12,25 @@
 
     <!-- Mainmenu Strings -->
     <string name="homeText">Selecteer je activiteit</string>
-    <string name="aboutUsText">Gemaakt door C1 van de Hogeschool Rotterdam. Copyright 2013</string>
+    <string name="aboutUsText">Gemaakt door C1 van de Hogeschool Rotterdam. \n Copyright 2013</string>
 
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUZE</string>
     <string name="stopWarning">Tik nogmaals op \'Stop\' om je workout te stoppen.</string>
     <string name="stopWorkout">GESTOPT</string>
-    <string name="speed">Snelheid</string>
-    <string name="amount">Hoeveelheid</string>
-    <string name="timer">Tijd</string>
-    <string name="distance">Afstand</string>
+    <string name="speed">0 km/u</string>
+    <string name="amount">€00,00</string>
+    <string name="timer">00:00</string>
+    <string name="distance">0 km</string>
 
-    <!-- Result strings -->
-    <string name="save">Sla op</string>
-    <string name="back">Ga terug</string>
-    
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is ingeschakeld</string>
     <string name="gpsDis">GPS is uitgeschakeld</string>
+    <string name="location">Locatie gevonden. U kunt nu starten met uw workout.</string>
+    <string name="setLocation">Bezig met zoeken van uw huidige locatie.</string>
+    <string name="gps">Zet uw gps aan.</string>
+    <string name="invalidplay">ONGELDIGE PLAY SERVICES</string>
+    <string name="validplay">GELDIGE PLAY SERVICES</string>
 
     <!-- Unsorted Strings (sort asap) -->
     <string name="amountText">Stel uw gewenste bedrag per kilometer in</string>
@@ -40,7 +41,9 @@
     <string name="submit">Verzenden</string>
 
     <!-- History Strings -->
+    <string name="arrangement">Workout \t snelheid \t afstand \t tijd \t hoeveelheid</string>
     <string name="donation">Doneer</string>
     <string name="delete">Verwijder</string>
+     <string name="nohistory">Geen workout geschiedenis gevonden.</string>
 
 </resources>

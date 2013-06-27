@@ -17,22 +17,22 @@
     <!-- Location Listener Strings -->
     <string name="gpsEna">GPS is currently enabled</string>
     <string name="gpsDis">GPS is currently disabled</string>
+    <string name="location">Location fixed. You can now start your workout.</string>
+    <string name="setLocation">Looking for current location.</string>
+    <string name="gps">Please re-enable your gps.</string>
+    <string name="invalidplay">INVALID PLAY SERVICES</string>
+    <string name="validplay">VALID PLAY SERVICES</string>
 
     <!-- Workout Screen Strings -->
     <string name="pauseWorkout">PAUSED</string>
     <string name="stopWarning">Press \'Stop\' again to end your workout.</string>
     <string name="stopWorkout">ENDED</string>
-    <string name="speed">Speed</string>
-    <string name="amount">Amount</string>
-    <string name="timer">Timer</string>
-    <string name="distance">Distance</string>
-
-    <!-- Result strings -->
-    <string name="save">Save</string>
-    <string name="back">Back</string>
+    <string name="speed">0 km/u</string>
+    <string name="amount">€00,00</string>
+    <string name="timer">00:00</string>
+    <string name="distance">0 km</string>
     
     <!-- Unsorted Strings (sort asap) -->
-    <string name="hello_world">Hello world!</string>
     <string name="amountText">Please set your amount of donation per kilometer</string>
     <string name="image">image</string>
     <string name="start">Start</string>
@@ -41,7 +41,9 @@
     <string name="submit">Submit</string>
 
     <!-- History strings -->
+    <string name="arrangement">Workout \t speed \t distance \t time \t amount</string>
     <string name="donation">Donate</string>
     <string name="delete">Delete</string>
+    <string name="nohistory">No workout history found.</string>
 
 </resources>

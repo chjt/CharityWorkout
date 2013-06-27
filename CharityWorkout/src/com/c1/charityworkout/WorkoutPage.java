@@ -35,7 +35,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 	private Thread timer;
 	private static Boolean startW = false;
 	private TextView timerView, distanceView, speedView, amountView;
-	private Boolean threadFinished = true, freeMode;
+	private Boolean threadFinished = true;
 	private SharedPreferences getAmount;
 
 	// Variables of banner
@@ -83,7 +83,6 @@ public class WorkoutPage extends Activity implements OnClickListener {
 			donationPerKmString = getAmount.getString("donCycling", "5");
 		}
 		donationPerKm = Float.parseFloat(donationPerKmString);
-		freeMode = getAmount.getBoolean("freeMode", true);
 	}
 
 	private void getBundle() {
@@ -174,7 +173,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 						});
 						amountView.post(new Runnable() {
 							public void run() {
-								if (freeMode = false) {
+								
 									if (averageSpeed != null) {
 
 										int amountOfKm = Integer.parseInt(totalDistance
@@ -184,7 +183,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 												* donationPerKm;
 										amountDonated = Float
 												.toString(totalAmount);
-										amountDonated = "Û"
+										amountDonated = "€"
 												+ amountDonated
 														.substring(
 																0,
@@ -192,14 +191,10 @@ public class WorkoutPage extends Activity implements OnClickListener {
 																		.indexOf(".") + 2);
 										amountView.setText(amountDonated);
 									} else {
-										amountDonated = "Û0.00";
+										amountDonated = "€0.00";
 										amountView.setText(amountDonated);
 									}
-								} else {
-										amountDonated = "FREE MODE";
-										amountView.setText(amountDonated);
-								}
-							}
+								} 
 						});
 						threadFinished = true;
 					}

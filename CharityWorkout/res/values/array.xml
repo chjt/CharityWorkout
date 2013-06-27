@@ -10,6 +10,7 @@
         <item>en</item>
     </string-array>
     <string-array name="donEntries">
+        <item>€0.00</item>
         <item>€0.05</item>
         <item>€0.10</item>
         <item>€0.25</item>
@@ -17,6 +18,7 @@
         <item>€1.00</item>
     </string-array>
         <string-array name="donValues">
+        <item>0.00</item>
         <item>0.05</item>
         <item>0.10</item>
         <item>0.25</item>
