@@ -40,6 +40,7 @@
     <!-- History Strings -->
     <string name="arrangement">Workout \t snelheid \t afstand \t tijd \t hoeveelheid</string>
     <string name="donation">Doneer</string>
+    <string name="historyPage">Geschiedenis</string>
     <string name="delete">Verwijder</string>
      <string name="nohistory">Geen workout geschiedenis gevonden.</string>
 
