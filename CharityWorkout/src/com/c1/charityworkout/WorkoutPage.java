@@ -238,6 +238,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 				pauseTime = 0;
 				minTimer = 0;
 				getResult();
+				finish();
 			}
 			break;
 		}
@@ -251,7 +252,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 			Intent resultPage = new Intent(WorkoutPage.this,
 					WorkoutHistory.class);
 			startActivity(resultPage);
-			finish();
+			
 		}
 	}
 
