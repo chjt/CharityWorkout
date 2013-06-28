@@ -188,7 +188,7 @@ public class WorkoutPage extends Activity implements OnClickListener {
 														.substring(
 																0,
 																amountDonated
-																		.indexOf(".") + 3);
+																		.indexOf(".") + 2);
 										amountView.setText(amountDonated);
 									} else {
 										amountDonated = "€0.00";
